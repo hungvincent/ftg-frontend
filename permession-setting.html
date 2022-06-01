@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奉天宮後台</title>
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body onload="startTime()">
+    <header class="header d-flex align-items-center justify-content-between">
+        <div class="header_left d-flex align-items-center h-100">
+            <div class="header_menu d-flex align-items-center justify-content-center">
+                <img src="./public/img/icon_menu.svg" alt="">
+            </div>
+            <h1 class="header_title">權限設定</h1>
+        </div>
+        <img src="./public/img/logo.png" alt="" class="header_logo">
+        <div class="header_right d-flex align-items-center h-100">
+            <div>
+                <div class="header_user d-flex align-items-center justify-content-end">
+                    <img src="./public/img/icon_user.svg" alt="">
+                    <span>王小明</span>
+                </div>
+                <p class="header_time" id="header_time"></p>
+            </div>
+            <button class="header_logout"><img src="./public/img/icon_logout.svg" alt=""></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-permission">
+            <div class="inner">
+                <button class="ms-auto d-flex align-items-center btn-icontext btn-medium btn-third btn-add-account btn-add-item">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 4.16666V15.8333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.16675 10H15.8334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>新增帳號</span>
+                </button>
+                <table class="table table-brown table-permission">
+                    <tr class="table_title">
+                        <td>序號</td>
+                        <td>帳號</td>
+                        <td>密碼</td>
+                        <td align="center">前台作業</td>
+                        <td align="center">香客大樓</td>
+                        <td align="center">結緣品</td>
+                        <td align="center">參數設定</td>
+                        <td align="center">賽錢箱</td>
+                        <td align="center">報表列印</td>
+                        <td align="center">查詢系統</td>
+                        <td align="center">線上服務</td>
+                        <td>建立日期</td>
+                        <td>修改日期</td>
+                        <td align="center">啟用</td>
+                        <td>功能</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <input class="table_input permission_account" type="text" disabled value="yl303030">
+                        </td>
+                        <td><input class="table_input permission_password" type="text" disabled value="howheoi382r0p"></td>
+                        <td>
+                            <div class="check active"><img src="./public/img/icon_check.svg" alt=""></div>
+                        </td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td class="table_add-date">2022/03/01</td>
+                        <td class="table_edit-date">2022/03/01</td>
+                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                        <td>
+                            <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
+                            <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
+                            <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
+                            <button class="btn-border btn-small table_change-cancel d-none">取消</button>
+                            <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
+                            <button class="btn-border btn-small table_cancel d-none">取消</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="deleteComfirm" tabindex="-1" aria-labelledby="deleteComfirmLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteComfirmLabel">刪除</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              確定要刪除此帳號？
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-third btn-medium me-2" data-bs-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-border btn-medium ms-2">確定</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="alert_box"><p class="alert_text"></p></div>
+
+    <script src="./public/js/jquery/jquery.min.js"></script>
+    <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/common.js"></script>
+
+</body>
+</html>
