@@ -1,3 +1,17 @@
+// menu
+$(".header_menu").click(function(){
+    $(".nav_bg").fadeIn(300);
+    $(".nav_content").addClass("active");
+})
+$(".nav_close").click(function(){
+    $(".nav_bg").fadeOut(300);
+    $(".nav_content").removeClass("active");
+})
+$(".nav_bg").click(function(){
+    $(".nav_bg").fadeOut(300);
+    $(".nav_content").removeClass("active");
+})
+
 // 時間
 function startTime(){
     let today = new Date();

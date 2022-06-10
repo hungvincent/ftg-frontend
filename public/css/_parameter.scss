@@ -1,0 +1,17 @@
+.parameter {
+    &_right {
+        width: calc(100% - 185px);
+    }
+    &_content {
+        width: fit-content;
+        margin: 20px auto;
+    }
+}
+
+.table {
+    &-parameter {
+        &-oily {
+            max-width: 1200px;
+        }
+    }
+}

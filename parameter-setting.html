@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奉天宮後台</title>
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body onload="startTime()">
+    <header class="header d-flex align-items-center justify-content-between">
+        <div class="header_left d-flex align-items-center h-100">
+            <div class="header_menu d-flex align-items-center justify-content-center">
+                <img src="./public/img/icon_menu.svg" alt="">
+            </div>
+            <h1 class="header_title">參數設定</h1>
+        </div>
+        <img src="./public/img/logo.png" alt="" class="header_logo">
+        <div class="header_right d-flex align-items-center h-100">
+            <div>
+                <div class="header_user d-flex align-items-center justify-content-end">
+                    <img src="./public/img/icon_user.svg" alt="">
+                    <span>王小明</span>
+                </div>
+                <p class="header_time" id="header_time"></p>
+            </div>
+            <button class="header_logout"><img src="./public/img/icon_logout.svg" alt=""></button>
+        </div>
+    </header>
+
+    <nav class="nav-common">
+        <div class="nav_bg"></div>
+        <div class="nav_content">
+            <div class="nav_content_top">
+                <div class="nav_close"><img src="./public/img/icon_close-white.svg" alt=""></div>
+                <ul>
+                    <li><a href="">前台設定</a></li>
+                    <li><a href="">賽錢箱</a></li>
+                    <li class="active"><a href="">參數設定</a></li>
+                    <li><a href="">報表列印</a></li>
+                    <li><a href="">查詢統計</a></li>
+                    <li><a href="">權限設定</a></li>
+                </ul>
+            </div>
+            <ul class="nav_content_bottom">
+                <li><a href="">修改密碼</a></li>
+                <li><a href="">登出系統</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="m-0">
+        <div class="d-flex">
+            <ul class="nav nav-pills parameter_left tab-common" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="oily-tab" data-bs-toggle="pill" data-bs-target="#oily" type="button" role="tab" aria-controls="oily" aria-selected="true">油香</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="construct-tab" data-bs-toggle="pill" data-bs-target="#construct" type="button" role="tab" aria-controls="construct" aria-selected="false">建設</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="light-tab" data-bs-toggle="pill" data-bs-target="#light" type="button" role="tab" aria-controls="light" aria-selected="false">點燈</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="god-tab" data-bs-toggle="pill" data-bs-target="#god" type="button" role="tab" aria-controls="god" aria-selected="false">玉皇上帝禮斗</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="solution-tab" data-bs-toggle="pill" data-bs-target="#solution" type="button" role="tab" aria-controls="solution" aria-selected="false">制解</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="into-tab" data-bs-toggle="pill" data-bs-target="#into" type="button" role="tab" aria-controls="into" aria-selected="false">進香</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="wenchang-tab" data-bs-toggle="pill" data-bs-target="#wenchang" type="button" role="tab" aria-controls="wenchang" aria-selected="false">文昌法會</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="fiveyears-tab" data-bs-toggle="pill" data-bs-target="#fiveyears" type="button" role="tab" aria-controls="fiveyears" aria-selected="false">五年千歲禮斗</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="purdue-tab" data-bs-toggle="pill" data-bs-target="#purdue" type="button" role="tab" aria-controls="purdue" aria-selected="false">普渡</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="overpass-tab" data-bs-toggle="pill" data-bs-target="#overpass" type="button" role="tab" aria-controls="overpass" aria-selected="false">超渡</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="temple-tab" data-bs-toggle="pill" data-bs-target="#temple" type="button" role="tab" aria-controls="temple" aria-selected="false">建廟慶典</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="treasure-tab" data-bs-toggle="pill" data-bs-target="#treasure" type="button" role="tab" aria-controls="treasure" aria-selected="false">梁皇寶藏</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="redress-tab" data-bs-toggle="pill" data-bs-target="#redress" type="button" role="tab" aria-controls="redress" aria-selected="false">解冤法會</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="money-tab" data-bs-toggle="pill" data-bs-target="#money" type="button" role="tab" aria-controls="money" aria-selected="false">補財庫</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="gold-tab" data-bs-toggle="pill" data-bs-target="#gold" type="button" role="tab" aria-controls="gold" aria-selected="false">金牌捐獻</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="stuck-tab" data-bs-toggle="pill" data-bs-target="#stuck" type="button" role="tab" aria-controls="stuck" aria-selected="false">物品捐獻</button>
+                </li>
+            </ul>
+            <div class="tab-content parameter_right" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="oily" role="tabpanel" aria-labelledby="oily-tab">
+                    <div class="parameter_content">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h2 class="table_title">種類</h2>
+                            <button class="d-flex align-items-center btn-icontext btn-medium btn-third btn-add-oilykind btn-add-item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 4.16666V15.8333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.16675 10H15.8334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>新增種類</span>
+                            </button>
+                        </div>
+                        <table class="table table-brown table-parameter-oily">
+                            <tr class="table_title">
+                                <td>序號</td>
+                                <td>摘要</td>
+                                <td>可報名人數</td>
+                                <td>預設金額</td>
+                                <td>開始登記日期</td>
+                                <td>結束登記日期</td>
+                                <td>編輯</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <input class="table_input parameter_oily_summary" type="text" disabled value="農民曆">
+                                </td>
+                                <td>
+                                    <input class="table_input parameter_oily_num" type="number" disabled value="1000">
+                                </td>
+                                <td>
+                                    <input class="table_input parameter_oily_price" type="number" disabled value="11000">
+                                </td>
+                                <td>
+                                    <input class="table_input parameter_oily_startdate" type="date" disabled value="2022-04-03">
+                                </td>
+                                <td>
+                                    <input class="table_input parameter_oily_enddate" type="date" disabled value="2022-04-05">
+                                </td>
+                                <td>
+                                    <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
+                                    <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
+                                    <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
+                                    <button class="btn-border btn-small table_change-cancel d-none">取消</button>
+                                    <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
+                                    <button class="btn-border btn-small table_cancel d-none">取消</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="construct" role="tabpanel" aria-labelledby="construct-tab">...</div>
+                <div class="tab-pane fade" id="light" role="tabpanel" aria-labelledby="light-tab">...</div>
+                <div class="tab-pane fade" id="god" role="tabpanel" aria-labelledby="god-tab">...</div>
+                <div class="tab-pane fade" id="solution" role="tabpanel" aria-labelledby="solution-tab">...</div>
+                <div class="tab-pane fade" id="into" role="tabpanel" aria-labelledby="into-tab">...</div>
+                <div class="tab-pane fade" id="wenchang" role="tabpanel" aria-labelledby="wenchang-tab">...</div>
+                <div class="tab-pane fade" id="fiveyears" role="tabpanel" aria-labelledby="fiveyears-tab">...</div>
+                <div class="tab-pane fade" id="purdue" role="tabpanel" aria-labelledby="purdue-tab">...</div>
+                <div class="tab-pane fade" id="overpass" role="tabpanel" aria-labelledby="overpass-tab">...</div>
+                <div class="tab-pane fade" id="temple" role="tabpanel" aria-labelledby="temple-tab">...</div>
+                <div class="tab-pane fade" id="treasure" role="tabpanel" aria-labelledby="treasure-tab">...</div>
+                <div class="tab-pane fade" id="redress" role="tabpanel" aria-labelledby="redress-tab">...</div>
+                <div class="tab-pane fade" id="money" role="tabpanel" aria-labelledby="money-tab">...</div>
+                <div class="tab-pane fade" id="gold" role="tabpanel" aria-labelledby="gold-tab">...</div>
+                <div class="tab-pane fade" id="stuck" role="tabpanel" aria-labelledby="stuck-tab">...</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="deleteComfirm" tabindex="-1" aria-labelledby="deleteComfirmLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteComfirmLabel">刪除</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              確定要刪除此種類？
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-third btn-medium me-2" data-bs-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-border btn-medium ms-2">確定</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="alert_box"><p class="alert_text"></p></div>
+
+    <script src="./public/js/jquery/jquery.min.js"></script>
+    <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/common.js"></script>
+    <script src="./public/js/parameter-setting.js"></script>
+
+</body>
+</html>
