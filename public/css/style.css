@@ -246,10 +246,12 @@ main {
 
 .table td {
   vertical-align: middle;
+  text-align: center;
 }
 
 .table td input {
   width: 100%;
+  text-align: center;
 }
 
 .table td input:disabled {
