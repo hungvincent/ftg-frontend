@@ -3,6 +3,7 @@ body {
   font-family: 'Noto Sans TC', sans-serif;
   background-color: #F9F4EF;
   color: #4D4D4D;
+  font-size: 0.9vw;
 }
 
 ul {
@@ -43,7 +44,7 @@ input {
 .header {
   height: 70px;
   width: 100%;
-  background-color: #473218;
+  background-color: #9A0128;
   position: relative;
   color: #fff;
 }
@@ -93,7 +94,7 @@ input {
 }
 
 .header_time {
-  color: #A69F96;
+  color: #fff;
   font-size: 13px;
   margin: 0;
 }
@@ -129,7 +130,7 @@ input {
   width: 320px;
   height: 100%;
   position: fixed;
-  background-color: #695A4B;
+  background-color: #790125;
   color: #fff;
   top: 0;
   left: -320px;
@@ -163,7 +164,7 @@ input {
   color: #fff;
   display: block;
   padding: 10px 15px;
-  border-bottom: 1px solid #76695B;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-common .nav_content ul li:last-child a {
@@ -171,7 +172,7 @@ input {
 }
 
 .nav-common .nav_content ul li.active, .nav-common .nav_content ul li:hover {
-  background-color: #473218;
+  background-color: #5F011D;
 }
 
 .nav-common .nav_content.active {
@@ -201,8 +202,6 @@ main {
 }
 
 .container-permission {
-  max-width: 1670px;
-  min-width: 1440px;
   width: 100%;
   padding: 0 20px;
   margin-left: auto;
@@ -215,8 +214,8 @@ main {
 }
 
 .btn-third {
-  background-color: #A58C6D;
-  border: 1px solid #A58C6D;
+  background-color: #9A0128;
+  border: 1px solid #9A0128;
   color: #fff;
 }
 
@@ -259,21 +258,19 @@ main {
 }
 
 .table-brown td {
-  border: 1px solid #E3DBD3;
+  border: 1px solid #b6b6b6;
   background-color: #fff;
 }
 
 .table-brown .table_title td {
-  background-color: #E3DBD3;
-  font-size: 14px;
+  background-color: #C0C0C0;
   color: #473218;
   font-weight: 700;
 }
 
 .table_title {
-  color: #412B0F;
+  color: #000;
   margin: 0;
-  font-size: 18px;
 }
 
 .check {
@@ -397,7 +394,7 @@ main {
 }
 
 .tab-common .nav-link.active, .tab-common .nav-link:hover {
-  background-color: #695A4B;
+  background-color: #F1F1F1;
   color: #fff;
 }
 
@@ -410,9 +407,5 @@ main {
   width: -moz-fit-content;
   width: fit-content;
   margin: 20px auto;
-}
-
-.table-parameter-oily {
-  max-width: 1200px;
 }
 /*# sourceMappingURL=style.css.map */

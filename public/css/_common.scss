@@ -5,7 +5,8 @@ $deep-color:#473218;
 $second-color:#E3DBD3;
 $third-color:#A58C6D;
 $forth-color:#6A402E;
-$fifth-color:#695A4B;
+// $fifth-color:#695A4B;
+$fifth-color:#F1F1F1;
 $sixth-color:#DFD0C0;
 $common-text:#4D4D4D;
 $input-color:#FFF5EC;
@@ -18,6 +19,7 @@ body {
     font-family: 'Noto Sans TC', sans-serif;
     background-color: $bg-color;
     color: $common-text;
+    font-size: 0.9vw;
 }
 
 ul {
@@ -59,7 +61,7 @@ input {
 .header {
     height: 70px;
     width: 100%;
-    background-color: $deep-color;
+    background-color: #9A0128;
     position: relative;
     color: #fff;
     &_menu {
@@ -97,7 +99,8 @@ input {
         }
     }
     &_time {
-        color: #A69F96;
+        // color: #b25169;
+        color: #fff;
         font-size: 13px;
         margin: 0;
     }
@@ -131,7 +134,7 @@ input {
             width: 320px;
             height: 100%;
             position: fixed;
-            background-color: $fifth-color;
+            background-color: #790125;
             color: #fff;
             top: 0;
             left: -320px;
@@ -154,7 +157,7 @@ input {
                         color: #fff;
                         display: block;
                         padding: 10px 15px;
-                        border-bottom: 1px solid #76695B;
+                        border-bottom: 1px solid rgba(255,255,255,0.2);
                     }
                     &:last-child {
                         a {
@@ -162,7 +165,7 @@ input {
                         }
                     }
                     &.active, &:hover {
-                        background-color: $deep-color;
+                        background-color: #5F011D;
                     }
                 }
             }
@@ -193,8 +196,8 @@ main {
 
 .container {
     &-permission {
-        max-width: 1670px;
-        min-width: 1440px;
+        // max-width: 1670px;
+        // min-width: 1440px;
         width: 100%;
         padding: 0 20px;
         margin-left: auto;
@@ -209,8 +212,10 @@ main {
 
 .btn {
     &-third {
-        background-color: $third-color;
-        border: 1px solid $third-color;
+        // background-color: $third-color;
+        background-color: #9A0128;
+        // border: 1px solid $third-color;
+        border: 1px solid #9A0128;
         color: #fff;
     }
     &-medium {
@@ -230,6 +235,8 @@ main {
     &-border {
         border: 1px solid $deep-color;
         color: $deep-color;
+        // border: 1px solid #9A0128;
+        // color: #9A0128;
         border-radius: 0;
     }
 }
@@ -248,14 +255,14 @@ main {
     }
     &-brown {
         td {
-            border: 1px solid $second-color;
+            border: 1px solid #b6b6b6;
             background-color: #fff;
         }
         .table {
             &_title {
                 td {
-                    background-color: $second-color;
-                    font-size: 14px;
+                    background-color: #C0C0C0;
+                    // font-size: 14px;
                     color: $deep-color;
                     font-weight: 700;
                 }
@@ -263,9 +270,10 @@ main {
         }
     }
     &_title {
-        color: #412B0F;
+        // color: #412B0F;
+        color: #000;
         margin: 0;
-        font-size: 18px;
+        // font-size: 18px;
     }
 }
 
