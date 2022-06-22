@@ -39,6 +39,16 @@ input {
   padding: 3px 8px;
   background-color: transparent;
   outline: none;
+  width: 100px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .header {
@@ -250,7 +260,6 @@ main {
 }
 
 .table td input {
-  width: 100%;
   text-align: center;
 }
 
@@ -396,8 +405,43 @@ main {
 }
 
 .tab-common .nav-link.active, .tab-common .nav-link:hover {
-  background-color: #F1F1F1;
+  background-color: #695A4B;
   color: #fff;
+}
+
+.switch {
+  width: 40px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: #E3DBD3;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.switch_circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.switch.active {
+  background-color: #6A402E;
+}
+
+.switch.active .switch_circle {
+  left: calc(100% - 3px - 14px);
 }
 
 .parameter_right {
@@ -405,9 +449,98 @@ main {
 }
 
 .parameter_content {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 20px auto;
+  padding: 20px;
+  height: 100%;
+}
+
+.parameter_table {
+  width: 100%;
+  overflow-x: auto;
+  height: calc(100vh - 70px - 24px - 40px);
+  overflow-y: auto;
+}
+
+.parameter_title-donateItems {
+  max-width: 450px;
+  width: 100%;
+}
+
+.table-params-field-1 {
+  width: 800px;
+}
+
+.table-params-field-2 {
+  width: 1150px;
+}
+
+.table-params-field-3 {
+  width: 1000px;
+}
+
+.table-params-kind-1 {
+  width: 650px;
+}
+
+.table-params-kind-2 {
+  width: 450px;
+}
+
+.table-params-kind-3 {
+  width: 450px;
+}
+
+.params_light_field, .params_light_kind {
+  width: 50%;
+  height: calc(100vh - 70px);
+  overflow-x: hidden;
+}
+
+.params_light_field {
+  background-color: #fff;
+}
+
+.params_stop_field {
+  width: 60%;
+  height: calc(100vh - 70px);
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+.params_stop_kind {
+  width: 40%;
+  height: calc(100vh - 70px);
+  overflow-x: hidden;
+}
+
+.params_system_form {
+  margin: 100px auto;
+  max-width: 440px;
+  padding: 0 20px;
+}
+
+.params_system_form label {
+  display: block;
+  width: 100px;
+  padding-right: 10px;
+}
+
+.params_system_right {
+  width: calc(100% - 100px);
+}
+
+.params_system_right input {
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+}
+
+.input-num label {
+  text-align: left !important;
+  display: block;
+}
+
+.input-num input {
+  width: 60px !important;
+  text-align: left !important;
 }
 /*# sourceMappingURL=style.css.map */

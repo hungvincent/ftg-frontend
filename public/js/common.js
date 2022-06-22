@@ -42,6 +42,11 @@ $(document).on("click",".check",function(){
     }
 })
 
+// 開關
+$(".switch").click(function(){
+    $(this).toggleClass("active");
+})
+
 // 權限設定 - 新增
 $(".btn-add-account").click(function(){
     $(this).attr("disabled",true);

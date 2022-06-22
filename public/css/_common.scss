@@ -56,6 +56,15 @@ input {
     padding: 3px 8px;
     background-color: transparent;
     outline: none;
+    width: 100px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .header {
@@ -247,7 +256,7 @@ main {
         vertical-align: middle;
         text-align: center;
         input {
-            width: 100%;
+            // width: 100%;
             text-align: center;
         }
         input:disabled {
@@ -375,8 +384,36 @@ main {
         color: $deep-color;
         transition: $transition-main;
         &.active, &:hover {
-            background-color: $fifth-color;
+            background-color: #695A4B;
             color: #fff;
+        }
+    }
+}
+
+.switch {
+    width: 40px;
+    height: 20px;
+    border-radius: 100px;
+    background-color: $second-color;
+    position: relative;
+    cursor: pointer;
+    transition: $transition-main;
+    &_circle {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        transform: translateY(-50%);
+        transition: $transition-main;
+    }
+    &.active {
+        background-color: $forth-color;
+        .switch_circle {
+            left: calc(100% - 3px - 14px);
         }
     }
 }
