@@ -13,25 +13,31 @@ $(".btn-add-bucaikufield").click(function(){
     let params_bucaiku_field = "<td><input class='table_input params_bucaiku_field' type='text'></td>";
 
     // 法會開始日
-    let params_bucaiku_pujaStart = "<td><input class='table_input params_bucaiku_pujaStart' type='date'></td>";
+    let params_bucaiku_pujaStart = "<td><input class='table_input input-date params_bucaiku_pujaStart' type='date'></td>";
 
     // 法會結束日
-    let params_bucaiku_pujaEnd = "<td><input class='table_input params_bucaiku_pujaEnd' type='date'></td>";
+    let params_bucaiku_pujaEnd = "<td><input class='table_input input-date params_bucaiku_pujaEnd' type='date'></td>";
 
     // 開始登記日期
-    let params_bucaiku_registerStart = " <td><input class='table_input params_bucaiku_registerStart' type='date'></td>";
+    let params_bucaiku_registerStart = " <td><input class='table_input input-date params_bucaiku_registerStart' type='date'></td>";
 
     // 結束登記日期
-    let params_bucaiku_registerEnd = "<td><input class='table_input params_bucaiku_registerEnd' type='date'></td>";
+    let params_bucaiku_registerEnd = "<td><input class='table_input input-date params_bucaiku_registerEnd' type='date'></td>";
 
-    // 可報名人數
-    let params_bucaiku_num = "<td><div class='d-flex input-num'><div class='params_bucaiku_num me-2'><label>總數</label><input class='table_input params_bucaiku_num-total' type='number'></div><div class='params_bucaiku_num me-2'><label>臨櫃數</label><input class='table_input params_bucaiku_num-counter' type='number'></div><div class='params_bucaiku_num'><label>網路數</label><input class='table_input params_bucaiku_num-net' type='number'></div></div></td>"
+    // 總數
+    let params_bucaiku_numTotal = "<td><input class='table_input params_bucaiku_num-total' type='number'></td>";
+
+    // 臨櫃數
+    let params_bucaiku_numCounter = "<td><input class='table_input params_bucaiku_num-counter' type='number'></td>";
+
+    // 網路數
+    let params_bucaiku_numNet = "<td><input class='table_input params_bucaiku_num-net' type='number'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
-    let bucaikuField_table = $("<tr></tr>");
-    bucaikuField_table.append(table_num,params_bucaiku_field,params_bucaiku_pujaStart,params_bucaiku_pujaEnd,params_bucaiku_registerStart,params_bucaiku_registerEnd,params_bucaiku_num,btn_box);
+    let bucaikuField_table = $("<tr class='editing'></tr>");
+    bucaikuField_table.append(table_num,params_bucaiku_field,params_bucaiku_pujaStart,params_bucaiku_pujaEnd,params_bucaiku_registerStart,params_bucaiku_registerEnd,params_bucaiku_numTotal,params_bucaiku_numCounter,params_bucaiku_numNet,btn_box);
     $(".table-params_bucaiku-field").append(bucaikuField_table);
 })
 
@@ -46,6 +52,7 @@ let params_bucaikuField_field,
     params_bucaiku_numNet;
 $(document).on("click",".table_edit",function(){
     if($(this).parents(".table").hasClass("table-params_bucaiku-field")){
+        $(this).parents("tr").addClass("editing").removeClass("active");
         params_bucaikuField_field = $(this).parents("tr").find(".params_bucaiku_field").val();
         params_bucaikuField_pujaStart = $(this).parents("tr").find(".params_bucaiku_pujaStart").val();
         params_bucaikuField_pujaEnd = $(this).parents("tr").find(".params_bucaiku_pujaEnd").val();
@@ -93,6 +100,7 @@ $(document).on("click",".table_change",function(){
             $(".alert_text").text(alert_text);
             $(".alert_box").fadeIn(300).delay(1000).fadeOut(300);
         }else {
+            $(this).parents("tr").removeClass("editing");
             $(this).parents("tr").find(".table_input").attr("disabled",true);
             $(this).addClass("d-none").removeClass("d-inline-block");
             $(this).parents("td").find(".table_edit").addClass("d-inline-block").removeClass("d-none");
@@ -105,6 +113,7 @@ $(document).on("click",".table_change",function(){
 // 取消變更
 $(document).on("click",".table_change-cancel",function(){
     if($(this).parents(".table").hasClass("table-params_bucaiku-field")){
+        $(this).parents("tr").removeClass("editing");
         $(this).parents("tr").find(".params_bucaiku_field").val(params_bucaikuField_field);
         $(this).parents("tr").find(".params_bucaiku_pujaStart").val(params_bucaikuField_pujaStart);
         $(this).parents("tr").find(".params_bucaiku_pujaEnd").val(params_bucaikuField_pujaEnd);
@@ -152,6 +161,7 @@ $(document).on("click",".table_add",function(){
             $(".alert_text").text(alert_text);
             $(".alert_box").fadeIn(300).delay(1000).fadeOut(300);
         }else {
+            $(this).parents("tr").removeClass("editing");
             $(this).parents("tr").find(".table_input").attr("disabled",true);
             $(this).addClass("d-none").removeClass("d-inline-block");
             $(this).parents("td").find(".table_edit").addClass("d-inline-block").removeClass("d-none");
@@ -161,10 +171,3 @@ $(document).on("click",".table_add",function(){
         }
     }
 })
-
-// 取消新增
-// $(document).on("click",".table_cancel",function(){
-//     if($(this).parents(".table").hasClass("table-params_bucaiku-field")){
-//         $(".btn-add-bucaikufield").attr("disabled",false);
-//     }
-// })

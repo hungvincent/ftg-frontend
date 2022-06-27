@@ -26,7 +26,10 @@
                     <img src="./public/img/icon_user.svg" alt="">
                     <span>王小明</span>
                 </div>
-                <p class="header_time" id="header_time"></p>
+                <div class="header_date">
+                  <span class="me-2">壬寅年正月初五日</span>
+                  <span class="header_time" id="header_time"></span>
+                </div>
             </div>
             <button class="header_logout"><img src="./public/img/icon_logout.svg" alt=""></button>
         </div>
@@ -122,9 +125,9 @@
                 </li>
                 <!-- 建廟慶典 end -->
 
-                <!-- 梁皇寶藏 -->
+                <!-- 梁皇寶懺 -->
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="params_lianghuang-tab" data-bs-toggle="pill" data-bs-target="#params_lianghuang" type="button" role="tab" aria-controls="params_lianghuang" aria-selected="false">梁皇寶藏</button>
+                  <button class="nav-link" id="params_lianghuang-tab" data-bs-toggle="pill" data-bs-target="#params_lianghuang" type="button" role="tab" aria-controls="params_lianghuang" aria-selected="false">梁皇寶懺</button>
                 </li>
                 <!-- 梁皇寶藏 end -->
 
@@ -169,43 +172,53 @@
                                 <span>新增種類</span>
                             </button>
                         </div>
-                        <table class="table table-brown table-params_donation">
-                            <tr class="table_title">
-                                <td>序號</td>
-                                <td>摘要</td>
-                                <td>可報名人數</td>
-                                <td>預設金額</td>
-                                <td>開始登記日期</td>
-                                <td>結束登記日期</td>
-                                <td>編輯</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <input class="table_input params_donation_summary" type="text" disabled value="農民曆">
-                                </td>
-                                <td>
-                                    <input class="table_input params_donation_num" type="number" disabled value="1000">
-                                </td>
-                                <td>
-                                    <input class="table_input params_donation_price" type="number" disabled value="11000">
-                                </td>
-                                <td>
-                                    <input class="table_input params_donation_startdate" type="date" disabled value="2022-04-03">
-                                </td>
-                                <td>
-                                    <input class="table_input params_donation_enddate" type="date" disabled value="2022-04-05">
-                                </td>
-                                <td>
-                                    <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
-                                    <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
-                                    <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
-                                    <button class="btn-border btn-small table_change-cancel d-none">取消</button>
-                                    <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
-                                    <button class="btn-border btn-small table_cancel d-none">取消</button>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="parameter_table higher">
+                          <table class="table table-brown table-params_donation">
+                              <tr class="table_title">
+                                  <td>序號</td>
+                                  <td>摘要</td>
+                                  <td>總數</td>
+                                  <td>臨櫃數</td>
+                                  <td>網路數</td>
+                                  <td>預設金額</td>
+                                  <td>開始登記日期</td>
+                                  <td>結束登記日期</td>
+                                  <td>編輯</td>
+                              </tr>
+                              <tr>
+                                  <td>1</td>
+                                  <td>
+                                      <input class="table_input params_donation_summary" type="text" disabled value="農民曆">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_donation_num-total" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_donation_num-counter" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_donation_num-net" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                      <input class="table_input params_donation_price" type="number" disabled value="11000">
+                                  </td>
+                                  <td>
+                                      <input class="table_input input-date params_donation_startdate" type="date" disabled value="2022-04-03">
+                                  </td>
+                                  <td>
+                                      <input class="table_input input-date params_donation_enddate" type="date" disabled value="2022-04-05">
+                                  </td>
+                                  <td>
+                                      <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
+                                      <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
+                                      <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
+                                      <button class="btn-border btn-small table_change-cancel d-none">取消</button>
+                                      <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
+                                      <button class="btn-border btn-small table_cancel d-none">取消</button>
+                                  </td>
+                              </tr>
+                          </table>
+                        </div>
                     </div>
                 </div>
                 <!-- 油香 end -->
@@ -223,11 +236,14 @@
                             <span>新增種類</span>
                         </button>
                     </div>
-                    <table class="table table-brown table-params_construction">
+                    <div class="parameter_table higher">
+                      <table class="table table-brown table-params_construction">
                         <tr class="table_title">
                             <td>序號</td>
                             <td>摘要</td>
-                            <td>可報名人數</td>
+                            <td>總數</td>
+                            <td>臨櫃數</td>
+                            <td>網路數</td>
                             <td>預設金額</td>
                             <td>開始登記日期</td>
                             <td>結束登記日期</td>
@@ -239,16 +255,22 @@
                                 <input class="table_input params_construction_summary" type="text" disabled value="農民曆">
                             </td>
                             <td>
-                                <input class="table_input params_construction_num" type="number" disabled value="1000">
+                              <input class="table_input params_construction_num-total" type="number" disabled value="100">
+                            </td>
+                            <td>
+                              <input class="table_input params_construction_num-counter" type="number" disabled value="100">
+                            </td>
+                            <td>
+                              <input class="table_input params_construction_num-net" type="number" disabled value="100">
                             </td>
                             <td>
                                 <input class="table_input params_construction_price" type="number" disabled value="11000">
                             </td>
                             <td>
-                                <input class="table_input params_construction_startdate" type="date" disabled value="2022-04-03">
+                                <input class="table_input input-date params_construction_startdate" type="date" disabled value="2022-04-03">
                             </td>
                             <td>
-                                <input class="table_input params_construction_enddate" type="date" disabled value="2022-04-05">
+                                <input class="table_input input-date params_construction_enddate" type="date" disabled value="2022-04-05">
                             </td>
                             <td>
                                 <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -259,14 +281,15 @@
                                 <button class="btn-border btn-small table_cancel d-none">取消</button>
                             </td>
                         </tr>
-                    </table>
+                      </table>
+                    </div>
                   </div>
                 </div>
                 <!-- 建設 end -->
 
                 <!-- 點燈 -->
                 <div class="tab-pane fade" id="params_light" role="tabpanel" aria-labelledby="params_light-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -280,10 +303,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_light-field">
+                          <table class="table table-brown table-field table-params-field-1 table-params_light-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -296,16 +319,16 @@
                                       <input class="table_input params_light_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_light_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_light_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_light_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_light_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_light_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_light_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_light_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_light_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -337,7 +360,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>數量</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>金額</td>
                                 <td>編輯</td>
                             </tr>
@@ -347,20 +372,13 @@
                                     <input class="table_input params_light_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_light_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_light_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_light_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_light_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_light_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_light_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_light_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_light_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_light_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_light_price" type="number" disabled value="11000">
@@ -385,7 +403,7 @@
 
                 <!-- 玉皇上帝禮斗 -->
                 <div class="tab-pane fade" id="params_god_star" role="tabpanel" aria-labelledby="params_god_star-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -399,10 +417,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_godStar-field">
+                          <table class="table table-brown table-params-field-1 table-field table-params_godStar-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -415,16 +433,16 @@
                                       <input class="table_input params_godStar_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_godStar_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_godStar_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_godStar_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_godStar_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_godStar_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_godStar_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_godStar_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_godStar_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -456,7 +474,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>數量</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>金額</td>
                                 <td>編輯</td>
                             </tr>
@@ -466,20 +486,13 @@
                                     <input class="table_input params_godStar_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_godStar_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_godStar_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_godStar_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_godStar_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_godStar_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_godStar_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_godStar_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_godStar_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_godStar_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_godStar_price" type="number" disabled value="11000">
@@ -504,7 +517,7 @@
 
                 <!-- 制解 -->
                 <div class="tab-pane fade" id="params_stop_resolve" role="tabpanel" aria-labelledby="params_stop_resolve-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_stop_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -518,7 +531,7 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-2 table-params_stop-field">
+                          <table class="table table-brown table-field table-params-field-2 table-params_stop-field">
                               <tr class="table_title">
                                   <td>序號</td>
                                   <td>場次</td>
@@ -526,7 +539,9 @@
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
                                   <td>結束登記日期</td>
-                                  <td>可報名戶數</td>
+                                  <td>總數</td>
+                                  <td>臨櫃數</td>
+                                  <td>網路數</td>
                                   <td>戶報名費</td>
                                   <td>編輯</td>
                               </tr>
@@ -536,32 +551,25 @@
                                       <input class="table_input params_stop_fieldnum" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_stop_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_stop_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_stop_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_stop_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_stop_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_stop_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_stop_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_stop_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
-                                    <div class="d-flex input-num">
-                                      <div class="params_stop_num me-2">
-                                        <label>總數</label>
-                                        <input class="table_input params_stop_num-total" type="number" disabled value="100">
-                                      </div>
-                                      <div class="params_stop_num me-2">
-                                        <label>臨櫃數</label>
-                                        <input class="table_input params_stop_num-counter" type="number" disabled value="100">
-                                      </div>
-                                      <div class="params_stop_num">
-                                        <label>網路數</label>
-                                        <input class="table_input params_stop_num-net" type="number" disabled value="100">
-                                      </div>
-                                    </div>
+                                    <input class="table_input params_stop_num-total" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_stop_num-counter" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_stop_num-net" type="number" disabled value="100">
                                   </td>
                                   <td>
                                       <input class="table_input params_stop_price" type="number" disabled value="1000">
@@ -626,7 +634,7 @@
 
                 <!-- 進香 -->
                 <div class="tab-pane fade" id="params_pilgrimage" role="tabpanel" aria-labelledby="params_pilgrimage-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -640,10 +648,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_pilgrimage-field">
+                          <table class="table table-brown table-field table-params-field-1 table-params_pilgrimage-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -656,16 +664,16 @@
                                       <input class="table_input params_pilgrimage_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_pilgrimage_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_pilgrimage_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_pilgrimage_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_pilgrimage_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_pilgrimage_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_pilgrimage_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_pilgrimage_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_pilgrimage_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -697,7 +705,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>報名人數</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>報名費</td>
                                 <td>編輯</td>
                             </tr>
@@ -707,20 +717,13 @@
                                     <input class="table_input params_pilgrimage_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_pilgrimage_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_pilgrimage_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_pilgrimage_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_pilgrimage_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_pilgrimage_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_pilgrimage_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_pilgrimage_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_pilgrimage_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_pilgrimage_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_pilgrimage_price" type="number" disabled value="11000">
@@ -745,7 +748,7 @@
 
                 <!-- 文昌法會 -->
                 <div class="tab-pane fade" id="params_wenchan" role="tabpanel" aria-labelledby="params_wenchan-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -759,10 +762,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_wenchan-field">
+                          <table class="table table-brown table-field table-params-field-1 table-params_wenchan-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -775,16 +778,16 @@
                                       <input class="table_input params_wenchan_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_wenchan_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_wenchan_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_wenchan_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_wenchan_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_wenchan_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_wenchan_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_wenchan_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_wenchan_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -816,7 +819,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>報名人數</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>報名費</td>
                                 <td>編輯</td>
                             </tr>
@@ -826,20 +831,13 @@
                                     <input class="table_input params_wenchan_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_wenchan_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_wenchan_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_wenchan_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_wenchan_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_wenchan_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_wenchan_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_wenchan_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_wenchan_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_wenchan_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_wenchan_price" type="number" disabled value="11000">
@@ -864,7 +862,7 @@
 
                 <!-- 五年千歲禮斗 -->
                 <div class="tab-pane fade" id="params_prince_star" role="tabpanel" aria-labelledby="params_prince_star-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -878,10 +876,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_prince-field">
+                          <table class="table table-brown table-field table-params-field-1 table-params_prince-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -894,16 +892,16 @@
                                       <input class="table_input params_prince_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_prince_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_prince_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_prince_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_prince_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_prince_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_prince_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_prince_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_prince_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -935,7 +933,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>數量</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>金額</td>
                                 <td>編輯</td>
                             </tr>
@@ -945,20 +945,13 @@
                                     <input class="table_input params_prince_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_prince_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_prince_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_prince_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_prince_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_prince_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_prince_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_prince_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_prince_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_prince_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_prince_price" type="number" disabled value="11000">
@@ -983,7 +976,7 @@
 
                 <!-- 普渡 -->
                 <div class="tab-pane fade" id="params_purdue" role="tabpanel" aria-labelledby="params_purdue-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -997,10 +990,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_purdue-field">
+                          <table class="table table-brown table-field table-params-field-1 table-params_purdue-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -1013,16 +1006,16 @@
                                       <input class="table_input params_purdue_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_purdue_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_purdue_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_purdue_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_purdue_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_purdue_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_purdue_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_purdue_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_purdue_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -1054,7 +1047,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>數量</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>金額</td>
                                 <td>編輯</td>
                             </tr>
@@ -1064,20 +1059,13 @@
                                     <input class="table_input params_purdue_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_purdue_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_purdue_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_purdue_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_purdue_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_purdue_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_purdue_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_purdue_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_purdue_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_purdue_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_purdue_price" type="number" disabled value="11000">
@@ -1102,7 +1090,7 @@
 
                 <!-- 超渡 -->
                 <div class="tab-pane fade" id="params_chaodue" role="tabpanel" aria-labelledby="params_chaodue-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -1116,10 +1104,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_chaodue-field">
+                          <table class="table table-brown table-field table-params-field-1 table-params_chaodue-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -1132,16 +1120,16 @@
                                       <input class="table_input params_chaodue_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_chaodue_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_chaodue_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_chaodue_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_chaodue_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_chaodue_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_chaodue_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_chaodue_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_chaodue_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -1173,7 +1161,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>數量</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>金額</td>
                                 <td>編輯</td>
                             </tr>
@@ -1183,20 +1173,13 @@
                                     <input class="table_input params_chaodue_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_chaodue_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_chaodue_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_chaodue_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_chaodue_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_chaodue_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_chaodue_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_chaodue_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_chaodue_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_chaodue_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_chaodue_price" type="number" disabled value="11000">
@@ -1232,50 +1215,52 @@
                             <span>新增場次</span>
                         </button>
                     </div>
-                    <table class="table table-brown table-params_anniversary">
-                        <tr class="table_title">
-                            <td>序號</td>
-                            <td>場次</td>
-                            <td>法會開始日</td>
-                            <td>法會結束日</td>
-                            <td>開始登記日期</td>
-                            <td>結束登記日期</td>
-                            <td>編輯</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <input class="table_input params_anniversary_field" type="text" disabled value="農民曆">
-                            </td>
-                            <td>
-                                <input class="table_input params_anniversary_pujaStart" type="date" disabled value="2022-04-03">
-                            </td>
-                            <td>
-                                <input class="table_input params_anniversary_pujaEnd" type="date" disabled value="2022-04-03">
-                            </td>
-                            <td>
-                                <input class="table_input params_anniversary_registerStart" type="date" disabled value="2022-04-03">
-                            </td>
-                            <td>
-                                <input class="table_input params_anniversary_registerEnd" type="date" disabled value="2022-04-05">
-                            </td>
-                            <td>
-                                <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
-                                <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
-                                <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
-                                <button class="btn-border btn-small table_change-cancel d-none">取消</button>
-                                <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
-                                <button class="btn-border btn-small table_cancel d-none">取消</button>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="parameter_table higher">
+                      <table class="table table-brown table-params_anniversary">
+                          <tr class="table_title">
+                              <td>序號</td>
+                              <td>場次</td>
+                              <td>法會開始日</td>
+                              <td>法會結束日</td>
+                              <td>開始登記日期</td>
+                              <td>結束登記日期</td>
+                              <td>編輯</td>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>
+                                  <input class="table_input params_anniversary_field" type="text" disabled value="農民曆">
+                              </td>
+                              <td>
+                                  <input class="table_input input-date params_anniversary_pujaStart" type="date" disabled value="2022-04-03">
+                              </td>
+                              <td>
+                                  <input class="table_input input-date params_anniversary_pujaEnd" type="date" disabled value="2022-04-03">
+                              </td>
+                              <td>
+                                  <input class="table_input input-date params_anniversary_registerStart" type="date" disabled value="2022-04-03">
+                              </td>
+                              <td>
+                                  <input class="table_input input-date params_anniversary_registerEnd" type="date" disabled value="2022-04-05">
+                              </td>
+                              <td>
+                                  <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
+                                  <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
+                                  <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
+                                  <button class="btn-border btn-small table_change-cancel d-none">取消</button>
+                                  <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
+                                  <button class="btn-border btn-small table_cancel d-none">取消</button>
+                              </td>
+                          </tr>
+                      </table>
+                    </div>
                 </div>
                 </div>
                 <!-- 建廟慶典 end -->
 
                 <!-- 梁皇寶藏 -->
                 <div class="tab-pane fade" id="params_lianghuang" role="tabpanel" aria-labelledby="params_lianghuang-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_light_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -1289,10 +1274,10 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-1 table-params_lianghuang-field">
+                          <table class="table table-brown table-field table-params-field-1 table-params_lianghuang-field">
                               <tr class="table_title">
                                   <td>序號</td>
-                                  <td>摘要</td>
+                                  <td>場次</td>
                                   <td>法會開始日</td>
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
@@ -1305,16 +1290,16 @@
                                       <input class="table_input params_lianghuang_content" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_lianghuang_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_lianghuang_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_lianghuang_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_lianghuang_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_lianghuang_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_lianghuang_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_lianghuang_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_lianghuang_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -1346,7 +1331,9 @@
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>種類</td>
-                                <td>數量</td>
+                                <td>總數</td>
+                                <td>臨櫃數</td>
+                                <td>網路數</td>
                                 <td>金額</td>
                                 <td>編輯</td>
                             </tr>
@@ -1356,20 +1343,13 @@
                                     <input class="table_input params_lianghuang_kindname" type="text" disabled value="天宮燈">
                                 </td>
                                 <td>
-                                  <div class="d-flex input-num">
-                                    <div class="params_lianghuang_num me-2">
-                                      <label>總數</label>
-                                      <input class="table_input params_lianghuang_num-total" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_lianghuang_num me-2">
-                                      <label>臨櫃數</label>
-                                      <input class="table_input params_lianghuang_num-counter" type="number" disabled value="100">
-                                    </div>
-                                    <div class="params_lianghuang_num">
-                                      <label>網路數</label>
-                                      <input class="table_input params_lianghuang_num-net" type="number" disabled value="100">
-                                    </div>
-                                  </div>
+                                  <input class="table_input params_lianghuang_num-total" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_lianghuang_num-counter" type="number" disabled value="100">
+                                </td>
+                                <td>
+                                  <input class="table_input params_lianghuang_num-net" type="number" disabled value="100">
                                 </td>
                                 <td>
                                     <input class="table_input params_lianghuang_price" type="number" disabled value="11000">
@@ -1394,7 +1374,7 @@
 
                 <!-- 解冤法會 -->
                 <div class="tab-pane fade" id="params_jieyuan" role="tabpanel" aria-labelledby="params_jieyuan-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_stop_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -1408,7 +1388,7 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-3 table-params_jieyuan-field">
+                          <table class="table table-brown table-field table-params-field-3 table-params_jieyuan-field">
                               <tr class="table_title">
                                   <td>序號</td>
                                   <td>場次</td>
@@ -1416,7 +1396,9 @@
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
                                   <td>結束登記日期</td>
-                                  <td>可報名人數</td>
+                                  <td>總數</td>
+                                  <td>臨櫃數</td>
+                                  <td>網路數</td>
                                   <td>編輯</td>
                               </tr>
                               <tr>
@@ -1425,32 +1407,25 @@
                                       <input class="table_input params_jieyuan_field" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_jieyuan_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_jieyuan_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_jieyuan_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_jieyuan_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_jieyuan_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_jieyuan_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_jieyuan_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_jieyuan_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
-                                    <div class="d-flex input-num">
-                                      <div class="params_jieyuan_num me-2">
-                                        <label>總數</label>
-                                        <input class="table_input params_jieyuan_num-total" type="number" disabled value="100">
-                                      </div>
-                                      <div class="params_jieyuan_num me-2">
-                                        <label>臨櫃數</label>
-                                        <input class="table_input params_jieyuan_num-counter" type="number" disabled value="100">
-                                      </div>
-                                      <div class="params_jieyuan_num">
-                                        <label>網路數</label>
-                                        <input class="table_input params_jieyuan_num-net" type="number" disabled value="100">
-                                      </div>
-                                    </div>
+                                    <input class="table_input params_jieyuan_num-total" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_jieyuan_num-counter" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_jieyuan_num-net" type="number" disabled value="100">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -1478,7 +1453,7 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-kind-3 table-params_jieyuan-kind">
+                          <table class="table table-brown table-params-kind-4 table-params_jieyuan-kind">
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>歲次</td>
@@ -1512,7 +1487,7 @@
 
                 <!-- 補財庫 -->
                 <div class="tab-pane fade" id="params_bucaiku" role="tabpanel" aria-labelledby="params_bucaiku-tab">
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="params_stop_field">
                       <div class="parameter_content px-4">
                         <div class="d-flex align-items-center justify-content-between">
@@ -1526,7 +1501,7 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-field-3 table-params_bucaiku-field">
+                          <table class="table table-brown table-field table-params-field-3 table-params_bucaiku-field">
                               <tr class="table_title">
                                   <td>序號</td>
                                   <td>場次</td>
@@ -1534,7 +1509,9 @@
                                   <td>法會結束日</td>
                                   <td>開始登記日期</td>
                                   <td>結束登記日期</td>
-                                  <td>可報名人數</td>
+                                  <td>總數</td>
+                                  <td>臨櫃數</td>
+                                  <td>網路數</td>
                                   <td>編輯</td>
                               </tr>
                               <tr>
@@ -1543,32 +1520,25 @@
                                       <input class="table_input params_bucaiku_field" type="text" disabled value="999">
                                   </td>
                                   <td>
-                                      <input class="table_input params_bucaiku_pujaStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_bucaiku_pujaStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_bucaiku_pujaEnd" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_bucaiku_pujaEnd" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_bucaiku_registerStart" type="date" disabled value="2022-04-03">
+                                      <input class="table_input input-date params_bucaiku_registerStart" type="date" disabled value="2022-04-03">
                                   </td>
                                   <td>
-                                      <input class="table_input params_bucaiku_registerEnd" type="date" disabled value="2022-04-05">
+                                      <input class="table_input input-date params_bucaiku_registerEnd" type="date" disabled value="2022-04-05">
                                   </td>
                                   <td>
-                                    <div class="d-flex input-num">
-                                      <div class="params_bucaiku_num me-2">
-                                        <label>總數</label>
-                                        <input class="table_input params_bucaiku_num-total" type="number" disabled value="100">
-                                      </div>
-                                      <div class="params_bucaiku_num me-2">
-                                        <label>臨櫃數</label>
-                                        <input class="table_input params_bucaiku_num-counter" type="number" disabled value="100">
-                                      </div>
-                                      <div class="params_bucaiku_num">
-                                        <label>網路數</label>
-                                        <input class="table_input params_bucaiku_num-net" type="number" disabled value="100">
-                                      </div>
-                                    </div>
+                                    <input class="table_input params_bucaiku_num-total" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_bucaiku_num-counter" type="number" disabled value="100">
+                                  </td>
+                                  <td>
+                                    <input class="table_input params_bucaiku_num-net" type="number" disabled value="100">
                                   </td>
                                   <td>
                                       <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
@@ -1596,7 +1566,7 @@
                             </button>
                         </div>
                         <div class="parameter_table">
-                          <table class="table table-brown table-params-kind-3 table-params_bucaiku-kind">
+                          <table class="table table-brown table-params-kind-4 table-params_bucaiku-kind">
                             <tr class="table_title">
                                 <td>代碼</td>
                                 <td>歲次</td>
@@ -1769,6 +1739,16 @@
     <script src="./public/js/parameter-setting_bucaiku-kind.js"></script>
     <!-- 物品捐獻 -->
     <script src="./public/js/parameter-setting_donateItems.js"></script>
+
+    <script>
+      $(document).on("click",".table-field tr",function(){
+        if(!$(this).hasClass("editing")){
+          if(!$(this).hasClass("table_title")){
+            $(this).toggleClass("active").siblings("tr").removeClass("active");
+          }
+        }
+      })
+    </script>
 
 
 </body>

@@ -9,9 +9,13 @@
     &_table {
         width: 100%;
         overflow-x: auto;
-        // 螢幕高 - header高 - 上padding - 標題高度
-        height: calc(100vh - 70px - 24px - 40px);
+        // (螢幕高 - header高)/2 - 上padding - 標題高度
+        height: calc((100vh - 70px)/2 - 24px - 40px);
         overflow-y: auto;
+        &.higher {
+            // 螢幕高 - header高 - 上padding - 標題高度 - 上margin
+            height: calc(100vh - 70px - 20px - 40px - 20px);
+        }
     }
     &_title {
         &-donateItems {
@@ -25,24 +29,46 @@
     &-params {
         &-field {
             &-1 {
-                width: 800px;
+                min-width: 850px;
             }
             &-2 {
-                width: 1150px;
+                min-width: 1440px;
             }
             &-3 {
-                width: 1000px;
+                min-width: 1100px;
             }
         }
         &-kind {
             &-1 {
-                width: 650px;
+                min-width: 650px;
             }
             &-2 {
-                width: 450px;
+                min-width: 450px;
             }
             &-3 {
                 width: 450px;
+            }
+            &-4 {
+                min-width: 450px;
+                width: 100%;
+            }
+        }
+        &_donation, &_construction {
+            min-width: 920px;
+        }
+        &_anniversary {
+            min-width: 825px;
+        }
+    }
+    &-field {
+        tr {
+            cursor: pointer;
+            &:not(.table_title):not(.editing){
+                &:hover, &.active {
+                    td {
+                        background-color: #ffe3ca;
+                    }
+                }
             }
         }
     }
@@ -51,8 +77,8 @@
 .params {
     &_light {
         &_field, &_kind {
-            width: 50%;
-            height: calc(100vh - 70px);
+            width: 100%;
+            height: calc((100vh - 70px)/2);
             overflow-x: hidden;
         }
         &_field {
@@ -61,14 +87,14 @@
     }
     &_stop {
         &_field {
-            width: 60%;
-            height: calc(100vh - 70px);
+            width: 100%;
+            height: calc((100vh - 70px)/2);
             overflow-x: hidden;
             background-color: #fff;
         }
         &_kind {
-            width: 40%;
-            height: calc(100vh - 70px);
+            width: 100%;
+            height: calc((100vh - 70px)/2);
             overflow-x: hidden;
         }
     }
@@ -79,8 +105,7 @@
             padding: 0 20px;
             label {
                 display: block;
-                width: 100px;
-                // text-align: right;
+                width: 120px;
                 padding-right: 10px;
             }
         }
@@ -106,4 +131,16 @@
             text-align: left !important;
         }
     }
+}
+
+@media screen and (max-width:1500px) {
+    .params {
+        &_system {
+           &_form {
+            label {
+                width: 100px;
+            }
+           } 
+        } 
+    } 
 }

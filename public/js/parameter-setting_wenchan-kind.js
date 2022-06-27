@@ -12,8 +12,14 @@ $(".btn-add-wenchankind").click(function(){
     // 種類
     let params_wenchan_kindname = "<td><input class='table_input params_wenchan_kindname' type='text'></td>";
 
-    // 報名人數
-    let params_wenchan_num = "<td><div class='d-flex input-num'><div class='params_wenchan_num me-2'><label>總數</label><input class='table_input params_wenchan_num-total' type='number'></div><div class='params_wenchan_num me-2'><label>臨櫃數</label><input class='table_input params_wenchan_num-counter' type='number'></div><div class='params_wenchan_num me-2'><label>網路數</label><input class='table_input params_wenchan_num-net' type='number'></div></div></td>";
+    // 總數
+    let params_wenchan_numTotal = "<td><input class='table_input params_wenchan_num-total' type='number'></td>";
+
+    // 臨櫃數
+    let params_wenchan_numCounter = "<td><input class='table_input params_wenchan_num-counter' type='number'></td>";
+
+    // 網路數
+    let params_wenchan_numNet = "<td><input class='table_input params_wenchan_num-net' type='number'></td>";
 
     // 報名費
     let params_wenchan_price = "<td><input class='table_input params_wenchan_price' type='number'></td>";
@@ -22,7 +28,7 @@ $(".btn-add-wenchankind").click(function(){
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
     let wenchanKind_table = $("<tr></tr>");
-    wenchanKind_table.append(table_num,params_wenchan_kindname,params_wenchan_num,params_wenchan_price,btn_box);
+    wenchanKind_table.append(table_num,params_wenchan_kindname,params_wenchan_numTotal,params_wenchan_numCounter,params_wenchan_numNet,params_wenchan_price,btn_box);
     $(".table-params_wenchan-kind").append(wenchanKind_table);
 })
 

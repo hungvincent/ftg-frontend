@@ -12,8 +12,14 @@ $(".btn-add-princekind").click(function(){
     // 種類
     let params_prince_kindname = "<td><input class='table_input params_prince_kindname' type='text'></td>";
 
-    // 數量
-    let params_prince_num = "<td><div class='d-flex input-num'><div class='params_prince_num me-2'><label>總數</label><input class='table_input params_prince_num-total' type='number'></div><div class='params_prince_num me-2'><label>臨櫃數</label><input class='table_input params_prince_num-counter' type='number'></div><div class='params_prince_num me-2'><label>網路數</label><input class='table_input params_prince_num-net' type='number'></div></div></td>";
+    // 總數
+    let params_prince_numTotal = "<td><input class='table_input params_prince_num-total' type='number'></td>";
+
+    // 臨櫃數
+    let params_prince_numCounter = "<td><input class='table_input params_prince_num-counter' type='number'></td>";
+
+    // 網路數
+    let params_prince_numNet = "<td><input class='table_input params_prince_num-net' type='number'></td>";
 
     // 金額
     let params_prince_price = "<td><input class='table_input params_prince_price' type='number'></td>";
@@ -22,7 +28,7 @@ $(".btn-add-princekind").click(function(){
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
     let princeKind_table = $("<tr></tr>");
-    princeKind_table.append(table_num,params_prince_kindname,params_prince_num,params_prince_price,btn_box);
+    princeKind_table.append(table_num,params_prince_kindname,params_prince_numTotal,params_prince_numCounter,params_prince_numNet,params_prince_price,btn_box);
     $(".table-params_prince-kind").append(princeKind_table);
 })
 

@@ -39,7 +39,7 @@ input {
   padding: 3px 8px;
   background-color: transparent;
   outline: none;
-  width: 100px;
+  width: 75px;
 }
 
 input::-webkit-outer-spin-button,
@@ -49,6 +49,10 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.input-date {
+  width: 150px;
 }
 
 .header {
@@ -103,7 +107,7 @@ input[type="number"] {
   margin-right: 4px;
 }
 
-.header_time {
+.header_date {
   color: #fff;
   font-size: 13px;
   margin: 0;
@@ -277,11 +281,13 @@ main {
   background-color: #C0C0C0;
   color: #473218;
   font-weight: 700;
+  font-size: 0.9vw;
 }
 
 .table_title {
   color: #000;
   margin: 0;
+  font-size: 22px;
 }
 
 .check {
@@ -402,6 +408,7 @@ main {
   color: #473218;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  font-weight: 500;
 }
 
 .tab-common .nav-link.active, .tab-common .nav-link:hover {
@@ -444,6 +451,12 @@ main {
   left: calc(100% - 3px - 14px);
 }
 
+@media screen and (max-width: 1600px) {
+  .input-date {
+    width: 120px;
+  }
+}
+
 .parameter_right {
   width: calc(100% - 185px);
 }
@@ -456,8 +469,12 @@ main {
 .parameter_table {
   width: 100%;
   overflow-x: auto;
-  height: calc(100vh - 70px - 24px - 40px);
+  height: calc((100vh - 70px)/2 - 24px - 40px);
   overflow-y: auto;
+}
+
+.parameter_table.higher {
+  height: calc(100vh - 70px - 20px - 40px - 20px);
 }
 
 .parameter_title-donateItems {
@@ -466,32 +483,53 @@ main {
 }
 
 .table-params-field-1 {
-  width: 800px;
+  min-width: 850px;
 }
 
 .table-params-field-2 {
-  width: 1150px;
+  min-width: 1440px;
 }
 
 .table-params-field-3 {
-  width: 1000px;
+  min-width: 1100px;
 }
 
 .table-params-kind-1 {
-  width: 650px;
+  min-width: 650px;
 }
 
 .table-params-kind-2 {
-  width: 450px;
+  min-width: 450px;
 }
 
 .table-params-kind-3 {
   width: 450px;
 }
 
+.table-params-kind-4 {
+  min-width: 450px;
+  width: 100%;
+}
+
+.table-params_donation, .table-params_construction {
+  min-width: 920px;
+}
+
+.table-params_anniversary {
+  min-width: 825px;
+}
+
+.table-field tr {
+  cursor: pointer;
+}
+
+.table-field tr:not(.table_title):not(.editing):hover td, .table-field tr:not(.table_title):not(.editing).active td {
+  background-color: #ffe3ca;
+}
+
 .params_light_field, .params_light_kind {
-  width: 50%;
-  height: calc(100vh - 70px);
+  width: 100%;
+  height: calc((100vh - 70px)/2);
   overflow-x: hidden;
 }
 
@@ -500,15 +538,15 @@ main {
 }
 
 .params_stop_field {
-  width: 60%;
-  height: calc(100vh - 70px);
+  width: 100%;
+  height: calc((100vh - 70px)/2);
   overflow-x: hidden;
   background-color: #fff;
 }
 
 .params_stop_kind {
-  width: 40%;
-  height: calc(100vh - 70px);
+  width: 100%;
+  height: calc((100vh - 70px)/2);
   overflow-x: hidden;
 }
 
@@ -520,7 +558,7 @@ main {
 
 .params_system_form label {
   display: block;
-  width: 100px;
+  width: 120px;
   padding-right: 10px;
 }
 
@@ -542,5 +580,11 @@ main {
 .input-num input {
   width: 60px !important;
   text-align: left !important;
+}
+
+@media screen and (max-width: 1500px) {
+  .params_system_form label {
+    width: 100px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

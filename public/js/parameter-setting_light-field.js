@@ -13,21 +13,21 @@ $(".btn-add-lightfield").click(function(){
     let params_light_content = "<td><input class='table_input params_light_content' type='text'></td>";
 
     // 法會開始日
-    let params_light_pujaStart = "<td><input class='table_input params_light_pujaStart' type='date'></td>";
+    let params_light_pujaStart = "<td><input class='table_input input-date params_light_pujaStart' type='date'></td>";
 
     // 法會結束日
-    let params_light_pujaEnd = "<td><input class='table_input params_light_pujaEnd' type='date'></td>";
+    let params_light_pujaEnd = "<td><input class='table_input input-date params_light_pujaEnd' type='date'></td>";
 
     // 開始登記日期
-    let params_light_registerStart = " <td><input class='table_input params_light_registerStart' type='date'></td>";
+    let params_light_registerStart = " <td><input class='table_input input-date params_light_registerStart' type='date'></td>";
 
     // 結束登記日期
-    let params_light_registerEnd = "<td><input class='table_input params_light_registerEnd' type='date'></td>";
+    let params_light_registerEnd = "<td><input class='table_input input-date params_light_registerEnd' type='date'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
-    let lightField_table = $("<tr></tr>");
+    let lightField_table = $("<tr class='editing'></tr>");
     lightField_table.append(table_num,params_light_content,params_light_pujaStart,params_light_pujaEnd,params_light_registerStart,params_light_registerEnd,btn_box);
     $(".table-params_light-field").append(lightField_table);
 })
@@ -36,6 +36,7 @@ $(".btn-add-lightfield").click(function(){
 let params_lightField_content, params_lightField_pujaStart, params_lightField_pujaEnd, params_lightField_registerStart, params_lightField_registerEnd;
 $(document).on("click",".table_edit",function(){
     if($(this).parents(".table").hasClass("table-params_light-field")){
+        $(this).parents("tr").addClass("editing").removeClass("active");
         params_lightField_content = $(this).parents("tr").find(".params_light_content").val();
         params_lightField_pujaStart = $(this).parents("tr").find(".params_light_pujaStart").val();
         params_lightField_pujaEnd = $(this).parents("tr").find(".params_light_pujaEnd").val();
@@ -48,7 +49,7 @@ $(document).on("click",".table_edit",function(){
 $(document).on("click",".table_change",function(){
     if($(this).parents(".table").hasClass("table-params_light-field")){
         if($(this).parents("tr").find(".params_light_content").val()==""){
-            let alert_text="請輸入摘要";
+            let alert_text="請輸入場次";
             $(".alert_text").text(alert_text);
             $(".alert_box").fadeIn(300).delay(1000).fadeOut(300);
         }else if($(this).parents("tr").find(".params_light_pujaStart").val()==""){
@@ -68,6 +69,7 @@ $(document).on("click",".table_change",function(){
             $(".alert_text").text(alert_text);
             $(".alert_box").fadeIn(300).delay(1000).fadeOut(300);
         }else {
+            $(this).parents("tr").removeClass("editing");
             $(this).parents("tr").find(".table_input").attr("disabled",true);
             $(this).addClass("d-none").removeClass("d-inline-block");
             $(this).parents("td").find(".table_edit").addClass("d-inline-block").removeClass("d-none");
@@ -80,6 +82,7 @@ $(document).on("click",".table_change",function(){
 // 取消變更
 $(document).on("click",".table_change-cancel",function(){
     if($(this).parents(".table").hasClass("table-params_light-field")){
+        $(this).parents("tr").removeClass("editing");
         $(this).parents("tr").find(".params_light_content").val(params_lightField_content);
         $(this).parents("tr").find(".params_light_pujaStart").val(params_lightField_pujaStart);
         $(this).parents("tr").find(".params_light_pujaEnd").val(params_lightField_pujaEnd);
@@ -92,7 +95,7 @@ $(document).on("click",".table_change-cancel",function(){
 $(document).on("click",".table_add",function(){
     if($(this).parents(".table").hasClass("table-params_light-field")){
         if($(this).parents("tr").find(".params_light_content").val()==""){
-            let alert_text="請輸入摘要";
+            let alert_text="請輸入場次";
             $(".alert_text").text(alert_text);
             $(".alert_box").fadeIn(300).delay(1000).fadeOut(300);
         }else if($(this).parents("tr").find(".params_light_pujaStart").val()==""){
@@ -112,6 +115,7 @@ $(document).on("click",".table_add",function(){
             $(".alert_text").text(alert_text);
             $(".alert_box").fadeIn(300).delay(1000).fadeOut(300);
         }else {
+            $(this).parents("tr").removeClass("editing");
             $(this).parents("tr").find(".table_input").attr("disabled",true);
             $(this).addClass("d-none").removeClass("d-inline-block");
             $(this).parents("td").find(".table_edit").addClass("d-inline-block").removeClass("d-none");

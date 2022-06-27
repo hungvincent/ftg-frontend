@@ -13,16 +13,16 @@ $(".btn-add-anniversary").click(function(){
     let params_anniversary_field = "<td><input class='table_input params_anniversary_field' type='text'></td>";
 
     // 法會開始日
-    let params_anniversary_pujaStart = "<td><input class='table_input params_anniversary_pujaStart' type='date'></td>";
+    let params_anniversary_pujaStart = "<td><input class='table_input input-date params_anniversary_pujaStart' type='date'></td>";
 
     // 法會結束日
-    let params_anniversary_pujaEnd = "<td><input class='table_input params_anniversary_pujaEnd' type='date'></td>";
+    let params_anniversary_pujaEnd = "<td><input class='table_input input-date params_anniversary_pujaEnd' type='date'></td>";
 
     // 開始登記日期
-    let params_anniversary_registerStart = " <td><input class='table_input params_anniversary_registerStart' type='date'></td>";
+    let params_anniversary_registerStart = " <td><input class='table_input input-date params_anniversary_registerStart' type='date'></td>";
 
     // 結束登記日期
-    let params_anniversary_registerEnd = "<td><input class='table_input params_anniversary_registerEnd' type='date'></td>";
+    let params_anniversary_registerEnd = "<td><input class='table_input input-date params_anniversary_registerEnd' type='date'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
