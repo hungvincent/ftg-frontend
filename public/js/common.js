@@ -14,17 +14,19 @@ $(".nav_bg").click(function(){
 
 // 時間
 function startTime(){
+    let day_list = ['日','一','二','三','四','五','六']
     let today = new Date();
     let year = today.getFullYear();
     let month = today.getMonth() + 1;
     let date = today.getDate();
+    let day = today.getDay();
     let hour = today.getHours();
     let minute = today.getMinutes();
     let second = today.getSeconds();
     minute = checkTime(minute);
     second = checkTime(second);
 
-    document.getElementById('header_time').innerHTML = year + "年" + month + "月" + date + "日" + " " + hour + ":" + minute + ":" + second;
+    document.getElementById('header_time').innerHTML = year + "年" + month + "月" + date + "日" + " " + "(" + day_list[day] + ")" + hour + ":" + minute + ":" + second;
     let timeoutId = setTimeout(startTime, 1000);
 }
 
