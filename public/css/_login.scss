@@ -1,0 +1,38 @@
+.login {
+    &-form {
+        max-width: 350px;
+        width: 100%;
+        padding: 0 20px;
+        margin: 0 auto 0;
+    }
+    &_logo {
+        // max-width: 400px;
+        width: 100%;
+        display: block;
+        margin: 0 auto 76px;
+    }
+    &_input {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0 auto 15px;
+        label {
+            width: 50px;
+        }
+        input {
+            width: calc(100% - 50px);
+            background-color: #fff;
+            height: 40px;
+        }
+    }
+    &_btn {
+        display: block;
+        margin: 30px auto 0;
+        padding: 10px 35px;
+        color: #fff;
+        background-color: $deep-color;
+    }
+    &_certify {
+        margin: 0 auto;
+    }
+}

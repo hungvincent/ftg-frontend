@@ -37,8 +37,9 @@ button:disabled svg path {
 input {
   border: 1px solid #D1D1D1;
   padding: 3px 8px;
-  background-color: transparent;
+  background-color: #fff;
   outline: none;
+  height: 35px;
   width: 75px;
 }
 
@@ -49,6 +50,21 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+select {
+  border: 1px solid #D1D1D1;
+  padding: 3px 25px 3px 8px;
+  background-color: #fff;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url(../img/select-arrow.svg);
+  background-position: calc(100% - 5px) center;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  height: 35px;
 }
 
 .input-date {
@@ -211,7 +227,6 @@ input[type="number"] {
 }
 
 main {
-  margin-top: 40px;
   width: 100%;
 }
 
@@ -287,7 +302,6 @@ main {
 .table_title {
   color: #000;
   margin: 0;
-  font-size: 22px;
 }
 
 .check {
@@ -325,6 +339,50 @@ main {
 .check.valid {
   cursor: pointer;
   border: 1px solid #D1D1D1;
+}
+
+.check-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.check-box_inner {
+  width: 17px;
+  height: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  margin-right: 6px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.check-box_inner img {
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.check-box.active .check-box_inner {
+  background-color: #A58C6D;
+  border: 1px solid #A58C6D !important;
+}
+
+.check-box.active .check-box_inner img {
+  opacity: 1;
 }
 
 .modal-dialog {
@@ -449,6 +507,15 @@ main {
 
 .switch.active .switch_circle {
   left: calc(100% - 3px - 14px);
+}
+
+footer {
+  width: 100%;
+  padding: 10px;
+  background-color: #473218;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
 }
 
 @media screen and (max-width: 1600px) {
@@ -586,5 +653,450 @@ main {
   .params_system_form label {
     width: 100px;
   }
+}
+
+.login-form {
+  max-width: 350px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto 0;
+}
+
+.login_logo {
+  width: 100%;
+  display: block;
+  margin: 0 auto 76px;
+}
+
+.login_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto 15px;
+}
+
+.login_input label {
+  width: 50px;
+}
+
+.login_input input {
+  width: calc(100% - 50px);
+  background-color: #fff;
+  height: 40px;
+}
+
+.login_btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 35px;
+  color: #fff;
+  background-color: #473218;
+}
+
+.login_certify {
+  margin: 0 auto;
+}
+
+.front_cust {
+  width: calc((100% - 185px)/2);
+  background-color: #fff;
+  padding: 20px 25px;
+}
+
+.front_cust h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #473218;
+  font-weight: 600;
+}
+
+.front_cust_form {
+  padding: 20px 15px;
+  background-color: #F1F1F1;
+}
+
+.front_cust_form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.front_cust_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+}
+
+.front_cust_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.front_cust_btn button {
+  padding: 5px 15px;
+  margin-left: 10px;
+}
+
+.front_cust_name {
+  width: 45%;
+}
+
+.front_cust_name label {
+  width: 50px;
+}
+
+.front_cust_name .front_cust_input {
+  width: calc(100% - 50px);
+}
+
+.front_cust_name select {
+  width: 70px;
+}
+
+.front_cust_name input {
+  width: calc(100% - 10px - 70px);
+}
+
+.front_cust_phone {
+  width: 55%;
+  padding-left: 15px;
+}
+
+.front_cust_phone label {
+  width: 45px;
+}
+
+.front_cust_phone .front_cust_input {
+  width: calc(100% - 45px);
+}
+
+.front_cust_phone input {
+  width: calc(50% - 5px);
+}
+
+.front_cust_address {
+  width: 100%;
+}
+
+.front_cust_address label {
+  width: 50px;
+}
+
+.front_cust_address .front_cust_input {
+  width: calc(100% - 50px);
+}
+
+.front_cust_address .cCountry {
+  opacity: 0;
+  display: none;
+}
+
+.front_cust_address .cZip {
+  width: 15%;
+}
+
+.front_cust_address .cAddress {
+  width: calc(85% - 10px);
+}
+
+.front_cust_birthLunar, .front_cust_birthNational, .front_cust_identity, .front_cust_memberNum, .front_cust_mail {
+  width: 39%;
+}
+
+.front_cust_birthLunar label, .front_cust_birthNational label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_mail label {
+  width: 85px;
+}
+
+.front_cust_birthLunar .front_cust_input, .front_cust_birthNational .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_mail .front_cust_input {
+  width: calc(100% - 85px);
+}
+
+.front_cust_birthLunar .front_cust_input input, .front_cust_birthNational .front_cust_input input, .front_cust_identity .front_cust_input input, .front_cust_memberNum .front_cust_input input, .front_cust_mail .front_cust_input input {
+  width: 100%;
+}
+
+.front_cust_birthNational, .front_cust_memberNum {
+  padding-left: 15px;
+}
+
+.front_cust_birthTime, .front_cust_gender {
+  width: 22%;
+  padding-left: 15px;
+}
+
+.front_cust_birthTime label, .front_cust_gender label {
+  width: 50px;
+}
+
+.front_cust_birthTime .front_cust_input, .front_cust_gender .front_cust_input {
+  width: calc(100% - 50px);
+}
+
+.front_cust_birthTime .front_cust_input input, .front_cust_birthTime .front_cust_input select, .front_cust_gender .front_cust_input input, .front_cust_gender .front_cust_input select {
+  width: 100%;
+}
+
+.front_cust_remark {
+  width: 61%;
+  padding-left: 15px;
+}
+
+.front_cust_remark label {
+  width: 85px;
+}
+
+.front_cust_remark .front_cust_input {
+  width: calc(100% - 85px);
+}
+
+.front_cust_remark .front_cust_input input {
+  width: 100%;
+}
+
+.front_family_top {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.front_family_top label {
+  width: 55px;
+}
+
+.front_family_top span {
+  width: 70px;
+  text-align: right;
+  font-weight: 700;
+  color: #473218;
+}
+
+.front_family_top select {
+  width: calc(100% - 150px);
+}
+
+.front_family_table {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  overflow-y: auto;
+  max-height: calc(100vh - 70px - 40px - 21.59px - 10px - 386.44px - 24px - 40px - 35px - 15px);
+}
+
+.front_family_table button {
+  padding: 4px 10px;
+}
+
+.front_family_table li {
+  width: 100%;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.front_family_table li > div {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  border-left: 1px solid #DCDCDC;
+}
+
+.front_family_table li > div:first-child {
+  border: 0;
+}
+
+.front_family_table .table_num {
+  width: 8%;
+}
+
+.front_family_table .table_name {
+  width: 24%;
+}
+
+.front_family_table .table_gender {
+  width: 8%;
+}
+
+.front_family_table .table_age {
+  width: 8%;
+}
+
+.front_family_table .table_zodiac {
+  width: 8%;
+}
+
+.front_family_table .table_birth {
+  width: 14%;
+}
+
+.front_family_table .table_inst {
+  width: 16%;
+}
+
+.front_family_table .table_func {
+  width: 14%;
+}
+
+.front_family_table .table_title {
+  background-color: #C0C0C0;
+  color: #473218;
+  font-weight: 700;
+  font-size: 0.9vw;
+}
+
+.front_tab {
+  width: 185px;
+}
+
+.front_detail {
+  width: calc((100% - 185px)/2);
+  padding: 30px 25px;
+}
+
+.front_detail .table {
+  max-width: 800px;
+}
+
+.front_detail .year-select {
+  width: 200px;
+}
+
+.front_detail .summary-select {
+  width: 80px;
+  margin-right: 10px;
+}
+
+.front_detail .summary-input {
+  width: 130px;
+}
+
+.front_detail .kind-select {
+  width: 220px;
+}
+
+.front_detail .resolve_select {
+  width: calc(100% - 200px - 100px - 70px - 45px);
+}
+
+.front_detail .resolve_label {
+  width: 70px;
+}
+
+.front_detail .resolve_input {
+  width: 100px;
+}
+
+.front_detail .pilgrimage_date {
+  width: 120px;
+}
+
+.front_detail .pilgrimage_ident {
+  width: 120px;
+}
+
+.front_detail .pilgrimage_vege {
+  padding: 0 30px;
+}
+
+.front_detail .chaodue_join {
+  width: 80px;
+}
+
+.front_detail_table {
+  min-width: 800px;
+}
+
+.front_detail_table-box {
+  overflow-x: auto;
+}
+
+.front_detail_name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  width: 180px;
+}
+
+.front_detail_remark {
+  margin-bottom: 15px;
+}
+
+.front_detail_remark label {
+  width: 85px;
+}
+
+.front_detail_remark select {
+  width: 110px;
+}
+
+.front_detail_remark input {
+  width: calc(100% - 210px);
+  margin-left: 15px;
+}
+
+.front_detail_pay label {
+  width: 85px;
+}
+
+.front_detail_pay select {
+  width: 110px;
+  margin-right: 15px;
+}
+
+.front_detail_pay input {
+  width: 150px;
+}
+
+.front_detail_pay_total {
+  width: auto !important;
+  margin-right: 15px;
+}
+
+.front_detail_pay button {
+  padding: 3px 10px;
+}
+
+.ac_results {
+  border: 1px solid #D1D1D1;
+}
+
+.ac_results li {
+  color: #4D4D4D;
+}
+
+.ac_results li * {
+  color: #4D4D4D;
 }
 /*# sourceMappingURL=style.css.map */

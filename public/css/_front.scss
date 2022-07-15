@@ -1,0 +1,309 @@
+.front {
+    &_cust {
+        width: calc((100% - 185px)/2);
+        background-color: #fff;
+        padding: 20px 25px;
+        h2 {
+            font-size: 18px;
+            margin: 0 0 10px;
+            color: $deep-color;
+            font-weight: 600;
+        }
+        &_form {
+            padding: 20px 15px;
+            background-color: $gray-f1;
+            form {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+        }
+        &_item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        &_input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &_btn {
+            button {
+                padding: 5px 15px;
+                margin-left: 10px;
+            }
+        }
+        &_name {
+            width: 45%;
+            label {
+                width: 50px;
+            }
+            .front_cust_input {
+                width: calc(100% - 50px);
+            }
+            select {
+                width: 70px;
+            }
+            input {
+                width: calc(100% - 10px - 70px);
+            }
+        }
+        &_phone {
+            width: 55%;
+            padding-left: 15px;
+            label {
+                width: 45px;
+            }
+            .front_cust_input {
+                width: calc(100% - 45px);
+            }
+            input {
+                width: calc(50% - 5px);
+            }
+        }
+        &_address {
+            width: 100%;
+            label {
+                width: 50px;
+            }
+            .front_cust_input {
+                width: calc(100% - 50px);
+            }
+            .cCountry {
+                opacity: 0;
+                display: none;
+            }
+            .cZip {
+                width: 15%;
+            }
+            .cAddress {
+                width: calc(85% - 10px);
+            }
+        }
+        &_birthLunar, &_birthNational, &_identity, &_memberNum, &_mail {
+            width: 39%;
+            label {
+                width: 85px;
+            }
+            .front_cust_input {
+                width: calc(100% - 85px);
+                input {
+                    width: 100%;
+                }
+            }
+        }
+        &_birthNational, &_memberNum {
+            padding-left: 15px;
+        }
+        &_birthTime, &_gender {
+            width: 22%;
+            padding-left: 15px;
+            label {
+                width: 50px;
+            }
+            .front_cust_input {
+                width: calc(100% - 50px);
+                input, select {
+                    width: 100%;
+                }
+            }
+        }
+        &_remark {
+            width: 61%;
+            padding-left: 15px;
+            label {
+                width: 85px;
+            }
+            .front_cust_input {
+                width: calc(100% - 85px);
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &_family {
+        &_top {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            label {
+                width: 55px;
+            }
+            span {
+                width: 70px;
+                text-align: right;
+                font-weight: 700;
+                color: $deep-color;
+            }
+            select {
+                width: calc(100% - 150px);
+            }
+        }
+        &_table {
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            overflow-y: auto;
+            // 螢幕高 - header - front_cust的上下padding - 標題高度 - 標題下margin - 上面表格高度 - 下面表格的上margin - 下面表格的上下padding - 關聯戶那一排的高度 - 關聯戶那排的下margin
+            max-height: calc(100vh - 70px - 40px - 21.59px - 10px - 386.44px - 24px - 40px - 35px - 15px);
+            button {
+                padding: 4px 10px;
+            }
+            li {
+                width: 100%;
+                border-bottom: 1px solid $gray-DC;
+                >div {
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    border-left: 1px solid $gray-DC;
+                    &:first-child {
+                        border: 0;
+                    }
+                }
+            }
+            .table {
+                &_num {
+                    width: 8%;
+                }
+                &_name {
+                    width: 24%;
+                }
+                &_gender {
+                    width: 8%;
+                }
+                &_age {
+                    width: 8%;
+                }
+                &_zodiac {
+                    width: 8%;
+                }
+                &_birth {
+                    width: 14%;
+                }
+                &_inst {
+                    width: 16%;
+                }
+                &_func {
+                    width: 14%;
+                }
+                &_title {
+                    background-color: #C0C0C0;
+                    color: $deep-color;
+                    font-weight: 700;
+                    font-size: 0.9vw;
+                }
+            }
+        }
+    }
+    &_tab {
+        width: 185px;
+    }
+    &_detail {
+        width: calc((100% - 185px)/2);
+        padding: 30px 25px;
+        .table {
+            max-width: 800px;
+        }
+        .year-select {
+            width: 200px;
+        }
+        .summary {
+            &-select {
+                width: 80px;
+                margin-right: 10px;
+            }
+            &-input {
+                width: 130px;
+            }
+        }
+        .kind-select {
+            width: 220px;
+        }
+        .resolve {
+            &_select {
+                width: calc(100% - 200px - 100px - 70px - 45px);
+            }
+            &_label {
+                width: 70px;
+            }
+            &_input {
+                width: 100px;
+            }
+        }
+        .pilgrimage {
+            &_date {
+                width: 120px;
+            }
+            &_ident {
+                width: 120px;
+            }
+            &_vege {
+                padding: 0 30px;
+            }
+        }
+        .chaodue_join {
+            width: 80px;
+        }
+        &_table {
+            min-width: 800px;
+            &-box {
+                overflow-x: auto;
+            }
+        }
+        &_name {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            width: 180px;
+        }
+        &_remark {
+            margin-bottom: 15px;
+            label {
+                width: 85px;
+            }
+            select {
+                width: 110px;
+            }
+            input {
+                width: calc(100% - 210px);
+                margin-left: 15px;
+            }
+        }
+        &_pay {
+            label {
+                width: 85px;
+            }
+            select {
+                width: 110px;
+                margin-right: 15px;
+            }
+            input {
+                width: 150px;
+            }
+            &_total {
+                width: auto !important;
+                margin-right: 15px;
+            }
+            button {
+                padding: 3px 10px;
+            }
+        }
+    }
+}
+
+.ac_results {
+    border: 1px solid $gray-D1;
+    li {
+        color: $common-text;
+        * {
+            color: $common-text;
+        }
+    }
+}

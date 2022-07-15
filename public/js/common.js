@@ -16,7 +16,7 @@ $(".nav_bg").click(function(){
 function startTime(){
     let day_list = ['日','一','二','三','四','五','六']
     let today = new Date();
-    let year = today.getFullYear();
+    let year = today.getFullYear() - 1911;
     let month = today.getMonth() + 1;
     let date = today.getDate();
     let day = today.getDay();
@@ -26,7 +26,7 @@ function startTime(){
     minute = checkTime(minute);
     second = checkTime(second);
 
-    document.getElementById('header_time').innerHTML = year + "年" + month + "月" + date + "日" + " " + "(" + day_list[day] + ")" + hour + ":" + minute + ":" + second;
+    document.getElementById('header_time').innerHTML = year + "年" + month + "月" + date + "日" + " " + "(" + day_list[day] + ") " + hour + ":" + minute + ":" + second;
     let timeoutId = setTimeout(startTime, 1000);
 }
 
@@ -42,6 +42,9 @@ $(document).on("click",".check",function(){
     if($(this).hasClass("valid")){
         $(this).toggleClass("active");
     }
+})
+$(".check-box").click(function(){
+    $(this).toggleClass("active");
 })
 
 // 開關

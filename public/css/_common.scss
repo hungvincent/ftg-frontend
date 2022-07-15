@@ -54,8 +54,9 @@ button:disabled {
 input {
     border: 1px solid $gray-D1;
     padding: 3px 8px;
-    background-color: transparent;
+    background-color: #fff;
     outline: none;
+    height: 35px;
     width: 75px;
 }
 
@@ -65,6 +66,19 @@ input::-webkit-inner-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+select {
+    border: 1px solid $gray-D1;
+    padding: 3px 25px 3px 8px;
+    background-color: #fff;
+    outline: none;
+    appearance: none;
+    background-image: url(../img/select-arrow.svg);
+    background-position: calc(100% - 5px) center;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    height: 35px;
 }
 
 .input {
@@ -205,7 +219,7 @@ input[type="number"] {
 }
 
 main {
-    margin-top: 40px;
+    // margin-top: 40px;
     width: 100%;
 }
 
@@ -227,9 +241,7 @@ main {
 
 .btn {
     &-third {
-        // background-color: $third-color;
         background-color: #9A0128;
-        // border: 1px solid $third-color;
         border: 1px solid #9A0128;
         color: #fff;
     }
@@ -279,7 +291,6 @@ main {
             &_title {
                 td {
                     background-color: #C0C0C0;
-                    // font-size: 14px;
                     color: $deep-color;
                     font-weight: 700;
                     font-size: 0.9vw;
@@ -291,7 +302,7 @@ main {
         // color: #412B0F;
         color: #000;
         margin: 0;
-        font-size: 22px;
+        // font-size: 22px;
     }
 }
 
@@ -318,6 +329,35 @@ main {
     &.valid {
         cursor: pointer;
         border: 1px solid $gray-D1;
+    }
+    &-box {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &_inner {
+            width: 17px;
+            height: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border: 1px solid $gray-D1;
+            margin-right: 6px;
+            transition: $transition-main;
+            img {
+                opacity: 0;
+                transition: $transition-main;
+            }
+        }
+        &.active {
+            .check-box_inner {
+                background-color: $third-color;
+                border: 1px solid $third-color !important;
+                img {
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
 
@@ -424,6 +464,15 @@ main {
             left: calc(100% - 3px - 14px);
         }
     }
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    background-color: $deep-color;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
 }
 
 @media screen and (max-width:1600px) {

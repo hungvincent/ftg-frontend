@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奉天宮後台</title>
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-image: url(./public/img/login-bg.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    main {
+        min-height: calc(100vh - 41px);
+        margin: 0;
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <main>
+        <form class="login-form" action="">
+            <img class="login_logo" src="./public/img/login-logo.png" alt="">
+            <div class="login_input">
+                <label for="">帳號</label>
+                <input type="text">
+            </div>
+            <div class="login_input">
+                <label for="">密碼</label>
+                <input type="password">
+            </div>
+            <div class="login_certify">
+                <!-- 我不是機器人 -->
+                <div style="width:304px;height:78px;background-color:white">我不是機器人</div>
+            </div>
+            <button class="login_btn">登入系統</button>
+        </form>
+    </main>
+    <footer>© 2022 松山奉天宮 . All rights reserved</footer>
+
+    <script src="./public/js/jquery/jquery.min.js"></script>
+    <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奉天宮後台</title>
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/address/jquery.autocomplete.css">
+    <link rel="stylesheet" href="./public/css/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body onload="startTime()">
+    <header class="header d-flex align-items-center justify-content-between">
+        <div class="header_left d-flex align-items-center h-100">
+            <div class="header_menu d-flex align-items-center justify-content-center">
+                <img src="./public/img/icon_menu.svg" alt="">
+            </div>
+            <h1 class="header_title">前檯作業</h1>
+        </div>
+        <img src="./public/img/logo.png" alt="" class="header_logo">
+        <div class="header_right d-flex align-items-center h-100">
+            <div>
+                <div class="header_user d-flex align-items-center justify-content-end">
+                    <img src="./public/img/icon_user.svg" alt="">
+                    <span>王小明</span>
+                </div>
+                <div class="header_date">
+                    <span class="me-2">壬寅年正月初五日</span>
+                    <span class="header_time" id="header_time"></span>
+                  </div>
+            </div>
+            <button class="header_logout"><img src="./public/img/icon_logout.svg" alt=""></button>
+        </div>
+    </header>
+
+    <nav class="nav-common">
+        <div class="nav_bg"></div>
+        <div class="nav_content">
+            <div class="nav_content_top">
+                <div class="nav_close"><img src="./public/img/icon_close-white.svg" alt=""></div>
+                <ul>
+                    <li><a href="./front-work.html">前台作業</a></li>
+                    <li><a href="">賽錢箱</a></li>
+                    <li><a href="./parameter-setting.html">參數設定</a></li>
+                    <li><a href="">報表列印</a></li>
+                    <li><a href="">查詢統計</a></li>
+                    <li class="active"><a href="./permession-setting.html">權限設定</a></li>
+                </ul>
+            </div>
+            <ul class="nav_content_bottom">
+                <li><a href="">修改密碼</a></li>
+                <li><a href="">登出系統</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="d-flex">
+            <div class="front_cust">
+                <h2>客戶資料</h2>
+                <div class="front_cust_form">
+                  <form action="">
+                    <div class="front_cust_item front_cust_name">
+                      <label for="">姓名</label>
+                      <div class="front_cust_input">
+                        <select name="" id="">
+                          <option value="">一般</option>
+                          <option value="">契子</option>
+                        </select>
+                        <input type="text">
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_phone">
+                      <label for="">電話</label>
+                      <div class="front_cust_input">
+                        <input type="number" placeholder="電話1">
+                        <input type="number" placeholder="電話2">
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_address">
+                      <label for="">地址</label>
+                      <div class="front_cust_input" id="dvAddress1">
+                        <input type="text" class="cCountry" style="width: 0;" value="TW" />
+                        <input type="text" class="cZip" placeholder="郵遞區號"  />
+                        <input type="text" class="cAddress" />
+                      </div>
+                    </div>
+                    <div class="front_cust_item justify-content-between w-100">
+                      <div class="check-box">
+                        <div class="check-box_inner"> <img src="./public/img/icon_check.svg" alt=""></div>
+                        <span>郵寄</span>
+                      </div>
+                      <div class="front_cust_btn">
+                        <button class="btn-third">查詢</button>
+                        <button class="btn-border">清除</button>
+                      </div>
+                    </div>
+                  </form>
+
+                  <hr class="mt-0 mb-3">
+
+                  <form action="">
+                    <div class="front_cust_item front_cust_birthLunar">
+                      <label for="">農曆生日</label>
+                      <div class="front_cust_input">
+                        <input class="table_input input-date datepickerTW" type="text">
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_birthNational">
+                      <label for="">國曆生日</label>
+                      <div class="front_cust_input">
+                        <input class="table_input input-date datepickerTW" type="text">
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_birthTime">
+                      <label for="">時辰</label>
+                      <div class="front_cust_input">
+                        <select name="" id="">
+                          <option value="">-</option>
+                          <option value="吉" selected="selected">吉00-00</option>
+                          <option value="子">子23-01</option>
+                          <option value="丑">丑01-03</option>
+                          <option value="寅">寅03-05</option>
+                          <option value="卯">卯05-07</option>
+                          <option value="辰">辰07-09</option>
+                          <option value="巳">巳09-11</option>
+                          <option value="午">午11-13</option>
+                          <option value="未">未13-15</option>
+                          <option value="申">申15-17</option>
+                          <option value="酉">酉17-19</option>
+                          <option value="戌">戌19-21</option>
+                          <option value="亥">亥21-23</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_identity">
+                      <label for="">身分證號</label>
+                      <div class="front_cust_input">
+                        <input type="text">
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_memberNum">
+                      <label for="">會員卡號</label>
+                      <div class="front_cust_input">
+                        <input type="text">
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_gender">
+                      <label for="">性別</label>
+                      <div class="front_cust_input">
+                        <select name="" id="">
+                          <option value="">男</option>
+                          <option value="">女</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_mail">
+                      <label for="">電子信箱</label>
+                      <div class="front_cust_input">
+                        <input type="email">
+                      </div>
+                    </div>
+                    <div class="front_cust_item front_cust_remark">
+                      <label for="">備註</label>
+                      <div class="front_cust_input">
+                        <input type="text">
+                      </div>
+                    </div>
+                    <div class="front_cust_item justify-content-between w-100 mb-0">
+                      <div class="check-box">
+                        <div class="check-box_inner"> <img src="./public/img/icon_check.svg" alt=""></div>
+                        <span>啟用</span>
+                      </div>
+                      <div class="front_cust_btn">
+                        <button class="btn-third">新增</button>
+                        <button class="btn-third">儲存</button>
+                        <button class="btn-border">刪除</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="front_cust_form mt-4 front_family">
+                  <div class="front_family_top">
+                    <label for="">關聯戶</label>
+                    <select name="" id=""></select>
+                    <span>0丁0口</span>
+                  </div>
+                  <div class="front_family_table">
+                    <ul>
+                      <li class="d-flex table_title">
+                        <div class="table_num">序號</div>
+                        <div class="table_name">姓名</div>
+                        <div class="table_gender">性別</div>
+                        <div class="table_age">年齡</div>
+                        <div class="table_zodiac">生肖</div>
+                        <div class="table_birth">農曆生日</div>
+                        <div class="table_inst">制化</div>
+                        <div class="table_func">功能</div>
+                      </li>
+                    </ul>
+                    <ul id="sortable">
+                      <li class="d-flex">
+                        <div class="table_num">1</div>
+                        <div class="table_name">viccccccc</div>
+                        <div class="table_gender">男</div>
+                        <div class="table_age">25</div>
+                        <div class="table_zodiac">鼠</div>
+                        <div class="table_birth">085. 01. 01</div>
+                        <div class="table_inst">紫微星高照</div>
+                        <div class="table_func"><button class="btn-third">紀錄</button></div>
+                      </li>
+                      <li class="d-flex">
+                        <div class="table_num">2</div>
+                        <div class="table_name">viccccccc</div>
+                        <div class="table_gender">男</div>
+                        <div class="table_age">25</div>
+                        <div class="table_zodiac">鼠</div>
+                        <div class="table_birth">085. 01. 01</div>
+                        <div class="table_inst">紫微星高照</div>
+                        <div class="table_func"><button class="btn-third">紀錄</button></div>
+                      </li>
+                      <li class="d-flex">
+                        <div class="table_num">3</div>
+                        <div class="table_name">viccccccc</div>
+                        <div class="table_gender">男</div>
+                        <div class="table_age">25</div>
+                        <div class="table_zodiac">鼠</div>
+                        <div class="table_birth">085. 01. 01</div>
+                        <div class="table_inst">紫微星高照</div>
+                        <div class="table_func"><button class="btn-third">紀錄</button></div>
+                      </li>
+                      <li class="d-flex">
+                        <div class="table_num">4</div>
+                        <div class="table_name">viccccccc</div>
+                        <div class="table_gender">男</div>
+                        <div class="table_age">25</div>
+                        <div class="table_zodiac">鼠</div>
+                        <div class="table_birth">085. 01. 01</div>
+                        <div class="table_inst">紫微星高照</div>
+                        <div class="table_func"><button class="btn-third">紀錄</button></div>
+                      </li>
+                      <li class="d-flex">
+                        <div class="table_num">5</div>
+                        <div class="table_name">viccccccc</div>
+                        <div class="table_gender">男</div>
+                        <div class="table_age">25</div>
+                        <div class="table_zodiac">鼠</div>
+                        <div class="table_birth">085. 01. 01</div>
+                        <div class="table_inst">紫微星高照</div>
+                        <div class="table_func"><button class="btn-third">紀錄</button></div>
+                      </li>
+                      <li class="d-flex">
+                        <div class="table_num">6</div>
+                        <div class="table_name">viccccccc</div>
+                        <div class="table_gender">男</div>
+                        <div class="table_age">25</div>
+                        <div class="table_zodiac">鼠</div>
+                        <div class="table_birth">085. 01. 01</div>
+                        <div class="table_inst">紫微星高照</div>
+                        <div class="table_func"><button class="btn-third">紀錄</button></div>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+            </div>
+            <ul class="nav nav-pills tab-common" id="pills-tab" role="tablist">
+                <!-- 油香 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="counter_donation-tab" data-bs-toggle="pill" data-bs-target="#counter_donation" type="button" role="tab" aria-controls="counter_donation" aria-selected="true">油香</button>
+                </li>
+                <!-- 油香 end -->
+
+                <!-- 建設 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_construction-tab" data-bs-toggle="pill" data-bs-target="#counter_construction" type="button" role="tab" aria-controls="counter_construction" aria-selected="false">建設</button>
+                </li>
+                <!-- 建設 end -->
+
+                <!-- 點燈 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_light-tab" data-bs-toggle="pill" data-bs-target="#counter_light" type="button" role="tab" aria-controls="counter_light" aria-selected="false">點燈</button>
+                </li>
+                <!-- 點燈 end -->
+
+                <!-- 玉皇上帝禮斗 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_god_star-tab" data-bs-toggle="pill" data-bs-target="#counter_god_star" type="button" role="tab" aria-controls="counter_god_star" aria-selected="false">玉皇上帝禮斗</button>
+                </li>
+                <!-- 玉皇上帝禮斗 end -->
+
+                <!-- 制解 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_stop_resolve-tab" data-bs-toggle="pill" data-bs-target="#counter_stop_resolve" type="button" role="tab" aria-controls="counter_stop_resolve" aria-selected="false">制解</button>
+                </li>
+                <!-- 制解 end -->
+
+                <!-- 進香 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_pilgrimage-tab" data-bs-toggle="pill" data-bs-target="#counter_pilgrimage" type="button" role="tab" aria-controls="counter_pilgrimage" aria-selected="false">進香</button>
+                </li>
+                <!-- 進香 end -->
+
+                <!-- 文昌法會 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_wenchan-tab" data-bs-toggle="pill" data-bs-target="#counter_wenchan" type="button" role="tab" aria-controls="counter_wenchan" aria-selected="false">文昌法會</button>
+                </li>
+                <!-- 文昌法會 end -->
+
+                <!-- 五年千歲禮斗 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_prince_star-tab" data-bs-toggle="pill" data-bs-target="#counter_prince_star" type="button" role="tab" aria-controls="counter_prince_star" aria-selected="false">五年千歲禮斗</button>
+                </li>
+                <!-- 五年千歲禮斗 end -->
+
+                <!-- 普渡 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_purdue-tab" data-bs-toggle="pill" data-bs-target="#counter_purdue" type="button" role="tab" aria-controls="counter_purdue" aria-selected="false">普渡</button>
+                </li>
+                <!-- 普渡 end -->
+
+                <!-- 超渡 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_chaodue-tab" data-bs-toggle="pill" data-bs-target="#counter_chaodue" type="button" role="tab" aria-controls="counter_chaodue" aria-selected="false">超渡</button>
+                </li>
+                <!-- 超渡 end -->
+
+                <!-- 建廟慶典 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_anniversary-tab" data-bs-toggle="pill" data-bs-target="#counter_anniversary" type="button" role="tab" aria-controls="counter_anniversary" aria-selected="false">建廟慶典</button>
+                </li>
+                <!-- 建廟慶典 end -->
+
+                <!-- 梁皇寶懺 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_lianghuang-tab" data-bs-toggle="pill" data-bs-target="#counter_lianghuang" type="button" role="tab" aria-controls="counter_lianghuang" aria-selected="false">梁皇寶懺</button>
+                </li>
+                <!-- 梁皇寶懺 end -->
+
+                <!-- 解冤法會 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_jieyuan-tab" data-bs-toggle="pill" data-bs-target="#counter_jieyuan" type="button" role="tab" aria-controls="counter_jieyuan" aria-selected="false">解冤法會</button>
+                </li>
+                <!-- 解冤法會 end -->
+
+                <!-- 補財庫 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_bucaiku-tab" data-bs-toggle="pill" data-bs-target="#counter_bucaiku" type="button" role="tab" aria-controls="counter_bucaiku" aria-selected="false">補財庫</button>
+                </li>
+                <!-- 補財庫 end -->
+
+                <!-- 金牌捐獻 -->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="counter_donate_gold-tab" data-bs-toggle="pill" data-bs-target="#counter_donate_gold" type="button" role="tab" aria-controls="counter_donate_gold" aria-selected="false"> 金牌捐獻</button>
+                  </li>
+                <!-- 金牌捐獻 end -->
+
+                <!-- 物品捐獻 -->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="counter_donate_items-tab" data-bs-toggle="pill" data-bs-target="#counter_donate_items" type="button" role="tab" aria-controls="counter_donate_items" aria-selected="false">物品捐獻</button>
+                </li>
+                <!-- 物品捐獻 end -->
+            </ul>    
+            <div class="front_detail">
+              <div class="tab-content" id="pills-tabContent">
+                <!-- 油香 -->
+                <div class="tab-pane fade show active" id="counter_donation" role="tabpanel" aria-labelledby="counter_donation-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>摘要</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="summary-select" name="" id=""></select>
+                          <input class="summary-input" type="text">
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 油香 end -->
+
+                <!-- 建設 -->
+                <div class="tab-pane fade show" id="counter_construction" role="tabpanel" aria-labelledby="counter_construction-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>摘要</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="summary-select" name="" id=""></select>
+                          <input class="summary-input" type="text">
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 建設 end -->
+
+                <!-- 點燈 -->
+                <div class="tab-pane fade show" id="counter_light" role="tabpanel" aria-labelledby="counter_light-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>燈種</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 點燈 end -->
+
+                <!-- 玉皇上帝禮斗 -->
+                <div class="tab-pane fade show" id="counter_god_star" role="tabpanel" aria-labelledby="counter_god_star-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>斗別</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 玉皇上帝禮斗 end -->
+
+                <!-- 制解 -->
+                <div class="tab-pane fade show" id="counter_stop_resolve" role="tabpanel" aria-labelledby="counter_stop_resolve-tab">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <select class="year-select" name="" id="">
+                      <option value="">110辛丑年</option>
+                    </select>
+                    <select class="resolve_select" name="" id="">
+                      <option value="請選擇" disabled selected>請選擇</option>
+                    </select>
+                    <label class="resolve_label" for="">戶報名費</label>
+                    <input class="resolve_input" type="number">
+                  </div>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>參加</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <div class="check valid active"><img src="./public/img/icon_check.svg" alt=""></div>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 制解 end -->
+
+                <!-- 進香 -->
+                <div class="tab-pane fade show" id="counter_pilgrimage" role="tabpanel" aria-labelledby="counter_pilgrimage-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>國曆生日</td>
+                        <td>身分證字號</td>
+                        <td>參加</td>
+                        <td>金額</td>
+                        <td>素食</td>
+                        <td>神尊</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td><input class="table_input input-date datepickerTW pilgrimage_date" type="text"></td>
+                        <td><input type="text" class="pilgrimage_ident"></td>
+                        <td>
+                          <select name="" id="">
+                            <option value="請選擇">請選擇</option>
+                          </select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                        <td class="pilgrimage_vege">
+                          <div class="check valid active"><img src="./public/img/icon_check.svg" alt=""></div>
+                        </td>
+                        <td>
+                          <input type="text">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 進香 end -->
+
+                <!-- 文昌法會 -->
+                <div class="tab-pane fade show" id="counter_wenchan" role="tabpanel" aria-labelledby="counter_wenchan-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>參加</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 文昌法會 end -->
+
+                <!-- 五年千歲禮斗 -->
+                <div class="tab-pane fade show" id="counter_prince_star" role="tabpanel" aria-labelledby="counter_prince_star-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>斗別</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 五年千歲禮斗 end -->
+
+                <!-- 普渡 -->
+                <div class="tab-pane fade show" id="counter_purdue" role="tabpanel" aria-labelledby="counter_purdue-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>種類</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 普渡 end -->
+
+                <!-- 超渡 -->
+                <div class="tab-pane fade show" id="counter_chaodue" role="tabpanel" aria-labelledby="counter_chaodue-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>參加</td>
+                        <td>超渡對象</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td><select class="chaodue_join" name="" id=""></select></td>
+                        <td>
+                          <select class="summary-select" name="" id=""></select>
+                          <input class="summary-input" type="text">
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 超渡 end -->
+
+                <!-- 建廟慶典 -->
+                <div class="tab-pane fade show" id="counter_anniversary" role="tabpanel" aria-labelledby="counter_anniversary-tab">
+                  
+                </div>
+                <!-- 建廟慶典 end -->
+
+                <!-- 梁皇寶懺 -->
+                <div class="tab-pane fade show" id="counter_lianghuang" role="tabpanel" aria-labelledby="counter_lianghuang-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>參加</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 梁皇寶懺 end -->
+
+                <!-- 解冤法會 -->
+                <div class="tab-pane fade show" id="counter_jieyuan" role="tabpanel" aria-labelledby="counter_jieyuan-tab">
+                  <select class="year-select" name="" id="">
+                    <option value="">110辛丑年</option>
+                  </select>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>性別</td>
+                        <td>年齡</td>
+                        <td>制化</td>
+                        <td>參加</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>男</td>
+                        <td>99</td>
+                        <td>紫微星高照</td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center front_detail_remark">
+                    <label for="">備註</label>
+                    <select name="" id="">
+                      <option value="請選擇" selected disabled>請選擇</option>
+                    </select>
+                    <input type="text">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between front_detail_pay">
+                    <div class="d-flex align-items-center">
+                      <label for="">付款方式</label>
+                      <select name="" id="">
+                        <option value="現金" selected>現金</option>
+                      </select>
+                      <label class="front_detail_pay_total" for="">總金額</label>
+                      <input type="text">
+                    </div>
+                    <button class="btn-third">確認</button>
+                  </div>
+                </div>
+                <!-- 解冤法會 end -->
+
+                <!-- 補財庫 -->
+                <div class="tab-pane fade show" id="counter_bucaiku" role="tabpanel" aria-labelledby="counter_bucaiku-tab">
+                  
+                </div>
+                <!-- 補財庫 end -->
+
+                <!-- 金牌捐獻 -->
+                <div class="tab-pane fade show" id="counter_donate_gold" role="tabpanel" aria-labelledby="counter_donate_gold-tab">
+                  
+                </div>
+                <!-- 金牌捐獻 end -->
+
+                <!-- 物品捐獻 -->
+                <div class="tab-pane fade show" id="counter_donate_items" role="tabpanel" aria-labelledby="counter_donate_items-tab">
+                  
+                </div>
+                <!-- 物品捐獻 end -->
+              </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="deleteComfirm" tabindex="-1" aria-labelledby="deleteComfirmLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteComfirmLabel">刪除</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              確定要刪除此帳號？
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-third btn-medium me-2" data-bs-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-border btn-medium ms-2">確定</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="alert_box"><p class="alert_text"></p></div>
+
+    <script src="./public/js/jquery/jquery.min.js"></script>
+    <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="./public/js/datepicker-costum.js"></script>
+    <script src="./public/js/address/json2ext.js"></script>
+    <script src="./public/js/address/jquery.autocomplete.js"></script>
+    <script src="./public/js/address/jquery.twAddrHelper.js"></script>
+    <script src="./public/js/common.js"></script>
+
+    <script type="text/javascript">
+      $(function () {
+          setAddressInput($("#dvAddress1"));
+      });
+    </script>
+    <script>
+      $(function() {
+        $( "#sortable" ).sortable();
+        // $( "#pills-tab" ).sortable();
+        $( "#sortable li" ).disableSelection();
+      });
+
+      </script>
+
+</body>
+</html>
