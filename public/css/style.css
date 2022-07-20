@@ -443,7 +443,7 @@ main {
 .tab-common {
   width: 185px;
   height: calc(100vh - 70px);
-  padding: 30px 18px;
+  padding: 20px 18px;
   background-color: #F0EBE5;
   display: block;
   overflow-y: auto;
@@ -451,7 +451,7 @@ main {
 
 .tab-common .nav-item {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .tab-common .nav-item:last-child {
@@ -460,13 +460,14 @@ main {
 
 .tab-common .nav-link {
   background-color: #DFD0C0;
-  border-radius: 15px;
+  border-radius: 13px;
   width: 100%;
-  padding: 8px;
+  padding: 6.5px 8px;
   color: #473218;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   font-weight: 500;
+  text-align: center;
 }
 
 .tab-common .nav-link.active, .tab-common .nav-link:hover {
@@ -509,6 +510,28 @@ main {
   left: calc(100% - 3px - 14px);
 }
 
+#loading {
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#loading #myItem1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#loading .ldBar-label {
+  margin-top: 15px;
+}
+
 footer {
   width: 100%;
   padding: 10px;
@@ -522,6 +545,14 @@ footer {
   .input-date {
     width: 120px;
   }
+}
+
+.table-permission {
+  min-width: 1200px;
+}
+
+.table-permission-box {
+  overflow-x: auto;
 }
 
 .parameter_right {
@@ -759,7 +790,7 @@ footer {
 }
 
 .front_cust_name {
-  width: 45%;
+  width: 100%;
 }
 
 .front_cust_name label {
@@ -779,12 +810,11 @@ footer {
 }
 
 .front_cust_phone {
-  width: 55%;
-  padding-left: 15px;
+  width: 78%;
 }
 
 .front_cust_phone label {
-  width: 45px;
+  width: 50px;
 }
 
 .front_cust_phone .front_cust_input {
@@ -812,31 +842,43 @@ footer {
   display: none;
 }
 
-.front_cust_address .cZip {
-  width: 15%;
-}
-
 .front_cust_address .cAddress {
-  width: calc(85% - 10px);
+  width: calc(100% - 340px);
 }
 
-.front_cust_birthLunar, .front_cust_birthNational, .front_cust_identity, .front_cust_memberNum, .front_cust_mail {
+.front_cust_address .test-roleAttr-has-zipcode {
+  width: 340px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.front_cust_address .test-roleAttr-has-zipcode select {
+  width: 110px;
+  margin-right: 10px;
+}
+
+.front_cust_address .test-roleAttr-has-zipcode input {
+  width: calc(100% - (110px + 10px) * 2 - 10px);
+}
+
+.front_cust_birthLunar, .front_cust_birthNational, .front_cust_identity, .front_cust_memberNum, .front_cust_email, .front_cust_switch {
   width: 39%;
 }
 
-.front_cust_birthLunar label, .front_cust_birthNational label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_mail label {
+.front_cust_birthLunar label, .front_cust_birthNational label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_email label, .front_cust_switch label {
   width: 85px;
 }
 
-.front_cust_birthLunar .front_cust_input, .front_cust_birthNational .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_mail .front_cust_input {
+.front_cust_birthLunar .front_cust_input, .front_cust_birthNational .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_email .front_cust_input, .front_cust_switch .front_cust_input {
   width: calc(100% - 85px);
 }
 
-.front_cust_birthLunar .front_cust_input input, .front_cust_birthNational .front_cust_input input, .front_cust_identity .front_cust_input input, .front_cust_memberNum .front_cust_input input, .front_cust_mail .front_cust_input input {
+.front_cust_birthLunar .front_cust_input input, .front_cust_birthNational .front_cust_input input, .front_cust_identity .front_cust_input input, .front_cust_memberNum .front_cust_input input, .front_cust_email .front_cust_input input, .front_cust_switch .front_cust_input input {
   width: 100%;
 }
 
-.front_cust_birthNational, .front_cust_memberNum {
+.front_cust_birthLunar, .front_cust_memberNum {
   padding-left: 15px;
 }
 
@@ -874,6 +916,23 @@ footer {
   width: 100%;
 }
 
+.front_cust_mail {
+  width: 22%;
+  padding-left: 15px;
+}
+
+.front_cust_mail label {
+  width: 45px;
+}
+
+.front_cust_mail .front_cust_input {
+  width: calc(100% - 45px);
+}
+
+.front_cust_mail .front_cust_input select {
+  width: 100%;
+}
+
 .front_family_top {
   width: 100%;
   display: -webkit-box;
@@ -892,15 +951,8 @@ footer {
   width: 55px;
 }
 
-.front_family_top span {
-  width: 70px;
-  text-align: right;
-  font-weight: 700;
-  color: #473218;
-}
-
 .front_family_top select {
-  width: calc(100% - 150px);
+  width: calc(100% - 55px);
 }
 
 .front_family_table {
@@ -908,7 +960,7 @@ footer {
   text-align: center;
   background-color: #fff;
   overflow-y: auto;
-  max-height: calc(100vh - 70px - 40px - 21.59px - 10px - 386.44px - 24px - 40px - 35px - 15px);
+  max-height: calc(100vh - 70px - 40px - 21.59px - 10px - 447.84px - 24px - 40px - 35px - 15px);
 }
 
 .front_family_table button {
@@ -918,10 +970,11 @@ footer {
 .front_family_table li {
   width: 100%;
   border-bottom: 1px solid #DCDCDC;
+  text-align: center;
 }
 
 .front_family_table li > div {
-  padding: 10px;
+  padding: 7px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -982,10 +1035,40 @@ footer {
 .front_detail {
   width: calc((100% - 185px)/2);
   padding: 30px 25px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.front_detail_td_name {
+  width: 150px;
+}
+
+.front_detail_td_price {
+  width: 100px;
+}
+
+.front_detail_td_join {
+  width: 100px;
+}
+
+.front_detail_td_join select {
+  width: 100%;
+}
+
+.front_detail_td_check {
+  width: 100px;
+}
+
+.front_detail_td_fund {
+  width: 100px;
+}
+
+.front_detail_td_fund select {
+  width: 100%;
 }
 
 .front_detail .table {
-  max-width: 800px;
+  margin-top: 0;
 }
 
 .front_detail .year-select {
@@ -998,19 +1081,20 @@ footer {
 }
 
 .front_detail .summary-input {
-  width: 130px;
+  width: calc(100% - 80px - 15px);
 }
 
 .front_detail .kind-select {
-  width: 220px;
+  width: 100%;
 }
 
 .front_detail .resolve_select {
-  width: calc(100% - 200px - 100px - 70px - 45px);
+  width: calc(100% - 15px - 80px - 100px);
+  margin-right: 15px;
 }
 
 .front_detail .resolve_label {
-  width: 70px;
+  width: 80px;
 }
 
 .front_detail .resolve_input {
@@ -1025,18 +1109,6 @@ footer {
   width: 120px;
 }
 
-.front_detail .pilgrimage_vege {
-  padding: 0 30px;
-}
-
-.front_detail .chaodue_join {
-  width: 80px;
-}
-
-.front_detail_table {
-  min-width: 800px;
-}
-
 .front_detail_table-box {
   overflow-x: auto;
 }
@@ -1046,15 +1118,15 @@ footer {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-  width: 180px;
+  text-align: center;
 }
 
 .front_detail_remark {
-  margin-bottom: 15px;
+  width: 335px;
 }
 
 .front_detail_remark label {
-  width: 85px;
+  width: 45px;
 }
 
 .front_detail_remark select {
@@ -1062,8 +1134,21 @@ footer {
 }
 
 .front_detail_remark input {
-  width: calc(100% - 210px);
   margin-left: 15px;
+  width: calc(100% - 45px - 110px - 10px);
+}
+
+.front_detail_remark.donate-gold_remark {
+  width: 100%;
+}
+
+.front_detail_remark.donate-gold_remark input {
+  width: calc(100% - 45px - 110px - 15px - 15px - 80px);
+}
+
+.front_detail_pay {
+  padding-left: 10px;
+  width: calc(100% - 335px - 15px - 80px);
 }
 
 .front_detail_pay label {
@@ -1071,20 +1156,38 @@ footer {
 }
 
 .front_detail_pay select {
-  width: 110px;
+  width: 80px;
   margin-right: 15px;
 }
 
 .front_detail_pay input {
-  width: 150px;
+  width: calc(100% - 85px - 80px - 15px - 53px - 15px);
 }
 
 .front_detail_pay_total {
-  width: auto !important;
+  width: 53px !important;
   margin-right: 15px;
 }
 
-.front_detail_pay button {
+.front_detail_btn {
+  padding: 4px 10px;
+  margin-left: 15px;
+  width: 80px;
+}
+
+.front_record {
+  position: fixed;
+  width: calc((100% - 185px)/2);
+  padding: 30px 25px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  background-color: #F9F4EF;
+  top: 70px;
+  right: 0;
+  display: none;
+}
+
+.front_record_table button {
   padding: 3px 10px;
 }
 
@@ -1098,5 +1201,168 @@ footer {
 
 .ac_results li * {
   color: #4D4D4D;
+}
+
+@media screen and (max-width: 1750px) {
+  .front_cust_birthTime {
+    width: 24%;
+  }
+  .front_cust_birthLunar, .front_cust_birthNational {
+    width: 38%;
+  }
+  .front_detail_remark {
+    width: 90px;
+    width: 300px;
+  }
+  .front_detail_pay {
+    width: calc(100% - 300px - 15px - 70px);
+  }
+  .front_detail_pay label {
+    width: 80px;
+  }
+  .front_detail_pay_total {
+    width: 50px !important;
+  }
+  .front_detail_pay input {
+    width: calc(100% - 80px - 80px - 15px - 50px - 15px);
+  }
+  .front_detail_btn {
+    width: 70px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .front_detail_remark {
+    width: 230px;
+  }
+  .front_detail_remark select {
+    width: 80px;
+  }
+  .front_detail_remark input {
+    margin-left: 10px;
+    width: calc(100% - 45px - 80px - 10px);
+  }
+  .front_detail_pay {
+    width: calc(100% - 230px - 10px - 70px);
+  }
+  .front_detail_pay label {
+    width: 65px;
+  }
+  .front_detail_pay select {
+    margin-right: 10px;
+  }
+  .front_detail_pay_total {
+    width: 45px !important;
+    margin-right: 5px;
+  }
+  .front_detail_pay input {
+    width: calc(100% - 65px - 80px - 10px - 45px - 5px);
+  }
+  .front_detail_btn {
+    margin-left: 10px;
+  }
+  .front_family {
+    margin-top: 15px !important;
+  }
+  .front_family_table {
+    max-height: calc(100vh - 70px - 30px - 21.59px - 10px - 354.31px - 15px - 30px - 30px - 10px);
+  }
+  .front_family_table .table_num {
+    width: 45px;
+  }
+  .front_family_table .table_name {
+    width: 100px;
+  }
+  .front_family_table .table_gender {
+    width: 45px;
+  }
+  .front_family_table .table_age {
+    width: 45px;
+  }
+  .front_family_table .table_zodiac {
+    width: 45px;
+  }
+  .front_family_table .table_birth {
+    width: 90px;
+  }
+  .front_family_table .table_inst {
+    width: calc(100% - 45px - 100px - 45px - 45px - 45px - 90px - 70px);
+  }
+  .front_family_table .table_func {
+    width: 70px;
+  }
+  .front_family_top {
+    margin-bottom: 10px;
+  }
+  .front_cust {
+    padding: 15px 20px;
+  }
+  .front_cust_form {
+    padding: 15px;
+  }
+  .front_cust_form hr {
+    margin-bottom: 10px !important;
+  }
+  .front_cust_form input, .front_cust_form select {
+    height: 30px;
+  }
+  .front_cust_item {
+    margin-bottom: 10px;
+  }
+  .front_cust_birthNational, .front_cust_birthLunar, .front_cust_identity, .front_cust_memberNum, .front_cust_email, .front_cust_switch {
+    width: 38%;
+  }
+  .front_cust_birthNational label, .front_cust_birthLunar label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_email label, .front_cust_switch label {
+    width: 65px;
+  }
+  .front_cust_birthNational .front_cust_input, .front_cust_birthLunar .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_email .front_cust_input, .front_cust_switch .front_cust_input {
+    width: calc(100% - 65px);
+  }
+  .front_cust_birthTime label, .front_cust_gender label, .front_cust_remark label {
+    width: 40px;
+  }
+  .front_cust_birthTime .front_cust_input, .front_cust_gender .front_cust_input, .front_cust_remark .front_cust_input {
+    width: calc(100% - 40px);
+  }
+  .front_cust_birthTime, .front_cust_gender {
+    width: 24%;
+  }
+  .front_cust_birthLunar, .front_cust_birthTime, .front_cust_memberNum, .front_cust_gender, .front_cust_remark {
+    padding-left: 10px;
+  }
+  .front_cust_address .test-roleAttr-has-zipcode {
+    width: 300px;
+  }
+  .front_cust_address .test-roleAttr-has-zipcode select {
+    width: 90px;
+  }
+  .front_cust_address .test-roleAttr-has-zipcode input {
+    width: calc(100% - (90px + 10px) * 2 - 10px);
+  }
+  .front_cust_address .cAddress {
+    width: calc(100% - 300px);
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .front_detail_remark label {
+    width: 40px;
+  }
+  .front_detail_remark.donate-gold_remark input {
+    width: calc(100% - 40px - 80px - 10px - 10px - 60px);
+  }
+  .front_detail_pay {
+    width: calc(100% - 230px - 10px - 60px);
+  }
+  .front_detail_btn {
+    width: 60px;
+  }
+  .front_detail .resolve_select {
+    width: calc(100% - 10px - 65px - 100px);
+    margin-right: 10px;
+  }
+  .front_detail .resolve_label {
+    width: 65px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

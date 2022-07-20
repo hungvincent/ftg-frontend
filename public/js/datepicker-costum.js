@@ -1,3 +1,4 @@
+
 (function () {
   var yearTextSelector = ".ui-datepicker-year";
 
@@ -96,7 +97,7 @@
     isRTL: false,
     showMonthAfterYear: true,
     yearSuffix: "年",
-
+    
     onSelect: function (dateText, inst) {
       $(this).val(funcColle.onSelect.basic(dateText, inst));
       if (typeof funcColle.onSelect.newFunc === "function") {
@@ -171,42 +172,42 @@
     $(document).ready(function(){
         $(this).click(function () {
             var isFirstTime = $(this).val() === "";
-      
+
             // year range and default date
-      
+
             if ((twSettings.defaultDate || twSettings.yearRange) && isFirstTime) {
-              if (twSettings.defaultDate) {
-                $(this).datepicker("setDate", twSettings.defaultDate);
-              }
-      
-              // 當有year range時, select初始化設成range的最末年
-              if (twSettings.yearRange) {
-                var $yearSelect = $(".ui-datepicker-year"),
-                  nowYear = twSettings.defaultDate
-                    ? $(this).datepicker("getDate").getFullYear()
-                    : dateNative.getFullYear();
-      
-                $yearSelect.children(":selected").removeAttr("selected");
-                if ($yearSelect.children("[value=" + nowYear + "]").length > 0) {
-                  $yearSelect
-                    .children("[value=" + nowYear + "]")
-                    .attr("selected", "selected");
-                } else {
-                  $yearSelect.children().last().attr("selected", "selected");
+                if (twSettings.defaultDate) {
+                    $(this).datepicker("setDate", twSettings.defaultDate);
                 }
-              }
+
+                // 當有year range時, select初始化設成range的最末年
+                if (twSettings.yearRange) {
+                    var $yearSelect = $(".ui-datepicker-year"),
+                        nowYear = twSettings.defaultDate
+                        ? $(this).datepicker("getDate").getFullYear()
+                        : dateNative.getFullYear();
+
+                    $yearSelect.children(":selected").removeAttr("selected");
+                    if ($yearSelect.children("[value=" + nowYear + "]").length > 0) {
+                        $yearSelect
+                        .children("[value=" + nowYear + "]")
+                        .attr("selected", "selected");
+                    } else {
+                        $yearSelect.children().last().attr("selected", "selected");
+                    }
+                }
             } else {
-              $(this).datepicker("setDate", dateNative);
+                $(this).datepicker("setDate", dateNative);
             }
-      
+
             $(this).val($.datepicker.formatDate(twSettings.dateFormat, dateTW));
-      
+
             replaceYearText();
-      
+
             if (isFirstTime) {
-              $(this).val("");
+                $(this).val("");
             }
-          });
+        });
     })
 
 

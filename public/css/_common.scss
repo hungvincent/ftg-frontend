@@ -412,25 +412,26 @@ main {
 .tab-common {
     width: 185px;
     height: calc(100vh - 70px);
-    padding: 30px 18px;
+    padding: 20px 18px;
     background-color: #F0EBE5;
     display: block;
     overflow-y: auto;
     .nav-item {
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         &:last-child {
             margin-bottom: 0;
         }
     }
     .nav-link {
         background-color: $sixth-color;
-        border-radius: 15px;
+        border-radius: 13px;
         width: 100%;
-        padding: 8px;
+        padding: 6.5px 8px;
         color: $deep-color;
         transition: $transition-main;
         font-weight: 500;
+        text-align: center;
         &.active, &:hover {
             background-color: #695A4B;
             color: #fff;
@@ -463,6 +464,25 @@ main {
         .switch_circle {
             left: calc(100% - 3px - 14px);
         }
+    }
+}
+
+#loading {
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    #myItem1 {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+    .ldBar-label {
+        margin-top: 15px;
     }
 }
 

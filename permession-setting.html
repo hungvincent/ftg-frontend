@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>奉天宮後台</title>
     <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/loading/loading-bar.css">
     <link rel="stylesheet" href="./public/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,13 +36,17 @@
         </div>
     </header>
 
+    <div id="loading">
+        <div id="myItem1" data-type="fill" data-img="./public/img/logo.svg"></div>
+    </div>
+
     <nav class="nav-common">
         <div class="nav_bg"></div>
         <div class="nav_content">
             <div class="nav_content_top">
                 <div class="nav_close"><img src="./public/img/icon_close-white.svg" alt=""></div>
                 <ul>
-                    <li><a href="">前台設定</a></li>
+                    <li><a href="./front-work.html">前台設定</a></li>
                     <li><a href="">賽錢箱</a></li>
                     <li><a href="./parameter-setting.html">參數設定</a></li>
                     <li><a href="">報表列印</a></li>
@@ -66,53 +71,56 @@
                     </svg>
                     <span>新增帳號</span>
                 </button>
-                <table class="table table-brown table-permission">
-                    <tr class="table_title">
-                        <td>序號</td>
-                        <td>帳號</td>
-                        <td>密碼</td>
-                        <td align="center">前台作業</td>
-                        <td align="center">香客大樓</td>
-                        <td align="center">結緣品</td>
-                        <td align="center">參數設定</td>
-                        <td align="center">賽錢箱</td>
-                        <td align="center">報表列印</td>
-                        <td align="center">查詢系統</td>
-                        <td align="center">線上服務</td>
-                        <td>建立日期</td>
-                        <td>修改日期</td>
-                        <td align="center">啟用</td>
-                        <td>功能</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <input class="table_input permission_account" type="text" disabled value="yl303030">
-                        </td>
-                        <td><input class="table_input permission_password" type="text" disabled value="howheoi382r0p"></td>
-                        <td>
-                            <div class="check active"><img src="./public/img/icon_check.svg" alt=""></div>
-                        </td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td class="table_add-date">2022/03/01</td>
-                        <td class="table_edit-date">2022/03/01</td>
-                        <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
-                        <td>
-                            <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
-                            <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
-                            <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
-                            <button class="btn-border btn-small table_change-cancel d-none">取消</button>
-                            <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
-                            <button class="btn-border btn-small table_cancel d-none">取消</button>
-                        </td>
-                    </tr>
-                </table>
+                <div class="table-permission-box">
+                    <table class="table table-brown table-permission">
+                        <tr class="table_title">
+                            <td>序號</td>
+                            <td>帳號</td>
+                            <td>密碼</td>
+                            <td align="center">前台作業</td>
+                            <td align="center">香客大樓</td>
+                            <td align="center">結緣品</td>
+                            <td align="center">參數設定</td>
+                            <td align="center">賽錢箱</td>
+                            <td align="center">報表列印</td>
+                            <td align="center">查詢系統</td>
+                            <td align="center">線上服務</td>
+                            <td>建立日期</td>
+                            <td>修改日期</td>
+                            <td align="center">啟用</td>
+                            <td>功能</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <input class="table_input permission_account" type="text" disabled value="yl303030">
+                            </td>
+                            <td><input class="table_input permission_password" type="text" disabled value="howheoi382r0p"></td>
+                            <td>
+                                <div class="check active"><img src="./public/img/icon_check.svg" alt=""></div>
+                            </td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td class="table_add-date">2022/03/01</td>
+                            <td class="table_edit-date">2022/03/01</td>
+                            <td><div class="check"><img src="./public/img/icon_check.svg" alt=""></div></td>
+                            <td>
+                                <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
+                                <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
+                                <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
+                                <button class="btn-border btn-small table_change-cancel d-none">取消</button>
+                                <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
+                                <button class="btn-border btn-small table_cancel d-none">取消</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
             </div>
         </div>
     </main>
@@ -139,6 +147,7 @@
 
     <script src="./public/js/jquery/jquery.min.js"></script>
     <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/loading/loading-bar.js"></script>
     <script src="./public/js/common.js"></script>
     <script>
 

@@ -1,3 +1,12 @@
+// laoding
+var bar1 = new ldBar("#myItem1");
+var bar2 = document.getElementById('myItem1').ldBar;
+bar1.set(100);
+
+window.onload = function(){
+	$("#loading").fadeOut();
+}
+
 // menu
 $(".header_menu").click(function(){
     $(".nav_bg").fadeIn(300);
@@ -51,6 +60,8 @@ $(".check-box").click(function(){
 $(".switch").click(function(){
     $(this).toggleClass("active");
 })
+
+
 
 // 權限設定 - 新增
 $(".btn-add-account").click(function(){
