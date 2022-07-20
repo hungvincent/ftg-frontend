@@ -1,11 +1,4 @@
-// laoding
-var bar1 = new ldBar("#myItem1");
-var bar2 = document.getElementById('myItem1').ldBar;
-bar1.set(100);
 
-window.onload = function(){
-	$("#loading").fadeOut();
-}
 
 // menu
 $(".header_menu").click(function(){
@@ -20,6 +13,16 @@ $(".nav_bg").click(function(){
     $(".nav_bg").fadeOut(300);
     $(".nav_content").removeClass("active");
 })
+
+// loading
+var bar1 = new ldBar("#myItem1");
+var bar2 = document.getElementById('myItem1').ldBar;
+bar1.set(90);
+
+window.onload = function(){
+	$("#loading").fadeOut();
+    startTime();
+}
 
 // 時間
 function startTime(){
@@ -45,6 +48,8 @@ function checkTime(i){
     }
     return i;
 }
+
+
 
 // 打勾
 $(document).on("click",".check",function(){
