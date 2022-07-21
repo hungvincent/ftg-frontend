@@ -13,13 +13,11 @@ var a = new TwCitySelector({
 // 縣市select跟地址input連動
 $(document).on("change", ".county", function () {
   let county = $(this).val();
-  console.log(county);
   $(".cAddress").val(county);
 });
 $(document).on("change", ".district", function () {
   let district = $(this).val();
   let county = $(".county").val();
-  console.log(district);
   if (!$(".county").val() == "") {
     $(".cAddress").val(county + district);
   }
