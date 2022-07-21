@@ -1,5 +1,3 @@
-
-
 // menu
 $(".header_menu").click(function(){
     $(".nav_bg").fadeIn(300);

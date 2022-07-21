@@ -14,6 +14,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
+<style>
+  .table input, select {
+    background-color: transparent;
+  }
+</style>
 <body onload="startTime()">
     <header class="header d-flex align-items-center justify-content-between">
         <div class="header_left d-flex align-items-center h-100">
@@ -1748,19 +1753,8 @@
     <script src="./public/js/parameter-setting_bucaiku-kind.js"></script>
     <!-- 物品捐獻 -->
     <script src="./public/js/parameter-setting_donateItems.js"></script>
-
-
-    <script src="./public/js/datepicker-costum.js"></script>
-
-    <script>
-      $(document).on("click",".table-field tr",function(){
-        if(!$(this).hasClass("editing")){
-          if(!$(this).hasClass("table_title")){
-            $(this).toggleClass("active").siblings("tr").removeClass("active");
-          }
-        }
-      })
-    </script>
+    <!-- parameter 的 common -->
+    <script src="./public/js/parameter-setting.js"></script>
 
 
 </body>
