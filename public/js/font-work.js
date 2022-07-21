@@ -35,7 +35,13 @@ $(function () {
         });
     },
   });
-  $("#pills-tab").sortable();
+  $("#pills-tab").sortable({
+    beforeStop: function(){
+      $("#pills-tab").find(".nav-item").each(function(j){
+        $(this).attr("data-index",j);
+      })
+    }
+  });
   $("#sortable li").disableSelection();
 });
 
