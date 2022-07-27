@@ -5,9 +5,13 @@ $(".btn-add-pilgrimagekind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_pilgrimage-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_pilgrimageKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_pilgrimageKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_pilgrimage_kindname = "<td><input class='table_input params_pilgrimage_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-pilgrimagekind").click(function(){
 
     let pilgrimageKind_table = $("<tr></tr>");
     pilgrimageKind_table.append(table_num,params_pilgrimage_kindname,params_pilgrimage_numTotal,params_pilgrimage_numCounter,params_pilgrimage_numNet,params_pilgrimage_price,btn_box);
-    $(".table-params_pilgrimage-kind").append(pilgrimageKind_table);
+    pilgrimageKind_table.insertAfter(".table-params_pilgrimage-kind .table_title");
 })
 
 // 編輯

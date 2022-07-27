@@ -5,9 +5,13 @@ $(".btn-add-wenchankind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_wenchan-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_wenchanKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_wenchanKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_wenchan_kindname = "<td><input class='table_input params_wenchan_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-wenchankind").click(function(){
 
     let wenchanKind_table = $("<tr></tr>");
     wenchanKind_table.append(table_num,params_wenchan_kindname,params_wenchan_numTotal,params_wenchan_numCounter,params_wenchan_numNet,params_wenchan_price,btn_box);
-    $(".table-params_wenchan-kind").append(wenchanKind_table);
+    wenchanKind_table.insertAfter(".table-params_wenchan-kind .table_title");
 })
 
 // 編輯

@@ -5,31 +5,35 @@ $(".btn-add-princefield").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_prince-field").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_princeField_index'></td>");
+    $(document).ready(function(){
+        $(".params_princeField_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 摘要
     let params_prince_content = "<td><input class='table_input params_prince_content' type='text'></td>";
 
     // 法會開始日
-    let params_prince_pujaStart = "<td><input class='table_input input-date params_prince_pujaStart' type='date'></td>";
+    let params_prince_pujaStart = "<td><input class='table_input input-date params_prince_pujaStart' type='text'></td>";
 
     // 法會結束日
-    let params_prince_pujaEnd = "<td><input class='table_input input-date params_prince_pujaEnd' type='date'></td>";
+    let params_prince_pujaEnd = "<td><input class='table_input input-date params_prince_pujaEnd' type='text'></td>";
 
     // 開始登記日期
-    let params_prince_registerStart = " <td><input class='table_input input-date params_prince_registerStart' type='date'></td>";
+    let params_prince_registerStart = " <td><input class='table_input input-date params_prince_registerStart' type='text'></td>";
 
     // 結束登記日期
-    let params_prince_registerEnd = "<td><input class='table_input input-date params_prince_registerEnd' type='date'></td>";
+    let params_prince_registerEnd = "<td><input class='table_input input-date params_prince_registerEnd' type='text'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
     let princeField_table = $("<tr class='editing'></tr>");
     princeField_table.append(table_num,params_prince_content,params_prince_pujaStart,params_prince_pujaEnd,params_prince_registerStart,params_prince_registerEnd,btn_box);
-    $(".table-params_prince-field").append(princeField_table);
+    princeField_table.insertAfter(".table-params_prince-field .table_title");
 })
 
 // 編輯

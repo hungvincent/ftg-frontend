@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奉天宮後台</title>
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/loading/loading-bar.css">
+    <link rel="stylesheet" href="./public/css/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body onload="startTime()">
+    <header class="header d-flex align-items-center justify-content-between">
+        <div class="header_left d-flex align-items-center h-100">
+            <div class="header_menu d-flex align-items-center justify-content-center">
+                <img src="./public/img/icon_menu.svg" alt="">
+            </div>
+            <h1 class="header_title">賽錢箱</h1>
+        </div>
+        <img src="./public/img/logo.png" alt="" class="header_logo">
+        <div class="header_right d-flex align-items-center h-100">
+            <div>
+                <div class="header_user d-flex align-items-center justify-content-end">
+                    <img src="./public/img/icon_user.svg" alt="">
+                    <span>王小明</span>
+                </div>
+                <div class="header_date">
+                    <span class="me-2">壬寅年正月初五日</span>
+                    <span class="header_time" id="header_time"></span>
+                  </div>
+            </div>
+            <button class="header_logout"><img src="./public/img/icon_logout.svg" alt=""></button>
+        </div>
+    </header>
+
+    <div id="loading">
+      <div id="myItem1" data-type="fill" data-img="./public/img/logo.svg"></div>
+    </div>
+
+    <nav class="nav-common">
+        <div class="nav_bg"></div>
+        <div class="nav_content">
+            <div class="nav_content_top">
+                <div class="nav_close"><img src="./public/img/icon_close-white.svg" alt=""></div>
+                <ul>
+                    <li><a href="./front-work.html">前台作業</a></li>
+                    <li class="active"><a href="./money-box.html">賽錢箱</a></li>
+                    <li><a href="./parameter-setting.html">參數設定</a></li>
+                    <li><a href="">報表列印</a></li>
+                    <li><a href="">查詢統計</a></li>
+                    <li><a href="./permession-setting.html">權限設定</a></li>
+                </ul>
+            </div>
+            <ul class="nav_content_bottom">
+                <li><a href="">修改密碼</a></li>
+                <li><a href="">登出系統</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="d-flex">
+            <div class="money_left">
+                <div class="moneyAdd_content">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h2 class="table_title">新增項目</h2>
+                        <button class="d-flex align-items-center btn-icontext btn-medium btn-third btn-add-moneyItem btn-add-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4.16666V15.8333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4.16675 10H15.8334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>新增種類</span>
+                        </button>
+                    </div>
+                    <div class="money_table money_table-add">
+                      <table class="table table-brown table-money">
+                          <tr class="table_title">
+                              <td>序號</td>
+                              <td>種類</td>
+                              <td>金額</td>
+                              <td>編輯</td>
+                          </tr>
+                          <tr>
+                              <td class="money_index">1</td>
+                              <td>
+                                  <input class="table_input money_kind" type="text" disabled value="賽錢箱">
+                              </td>
+                              <td>
+                                <input class="table_input money_price" type="number" disabled value="100">
+                              </td>
+                              <td>
+                                  <button class="btn-third btn-small me-2 table_edit d-inline-block">編輯</button>
+                                  <button class="btn-border btn-small table_delete d-inline-block" data-bs-toggle="modal" data-bs-target="#deleteComfirm">刪除</button>
+                                  <button class="btn-third btn-small table_change d-none me-2">確定變更</button>
+                                  <button class="btn-border btn-small table_change-cancel d-none">取消</button>
+                                  <button class="btn-third btn-small table_add d-none me-2">確定新增</button>
+                                  <button class="btn-border btn-small table_cancel d-none">取消</button>
+                              </td>
+                          </tr>
+                      </table>
+                    </div>
+                    <div class="moneyAdd_bottom d-flex align-items-center">
+                        <div class="d-flex align-items-center accept-name">
+                            <label for="">點收人</label>
+                            <input type="text">
+                        </div>
+                        <div class="d-flex align-items-center accept-date">
+                            <label for="">點收日期</label>
+                            <input type="text">
+                        </div>
+                        <div class="d-flex align-items-center accept-name">
+                            <label for="">總金額</label>
+                            <input type="text">
+                        </div>
+                        <button class="btn-third">確認</button>
+                    </div>
+                </div>
+            </div>
+            <div class="money_right">
+                <h2 class="table_title">明細紀錄</h2>
+                <div class="money_table money_table-detail">
+                    <table class="table table-brown">
+                        <tr class="table_title">
+                            <td>編號</td>
+                            <td>日期</td>
+                            <td>總金額</td>
+                            <td>經辦人</td>
+                            <td>編輯</td>
+                        </tr>
+                        <tr>
+                            <td>OB11009003</td>
+                            <td>
+                                <input class="table_input money_date" type="text" disabled value="110/10/24">
+                            </td>
+                            <td>
+                              <input class="table_input money_totalPrice" type="number" disabled value="999999">
+                            </td>
+                            <td>
+                                <input class="table_input money_manager" type="text" name="" id="" disabled value="abc點收人名">
+                            </td>
+                            <td>
+                                <button class="btn-third btn-small d-inline-block" data-bs-toggle="modal" data-bs-target="#edit-detail">修改</button>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="edit-detail" tabindex="-1" aria-labelledby="edit-detailLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="edit-detailLabel">明細修改</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-brown table_detail">
+                    <tr class="table_title">
+                        <td>序號</td>
+                        <td>種類</td>
+                        <td>金額</td>
+                    </tr>
+                    <tr>
+                        <td class="table_detail_index">1</td>
+                        <td>賽錢箱</td>
+                        <td>
+                          <input class="table_input money_price" type="number" value="100">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table_detail_index">2</td>
+                        <td>賽錢箱</td>
+                        <td>
+                          <input class="table_input money_price" type="number" value="100">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table_detail_index">3</td>
+                        <td>賽錢箱</td>
+                        <td>
+                          <input class="table_input money_price" type="number" value="100">
+                        </td>
+                    </tr>
+                </table>
+                <div class="d-flex align-items-end justify-content-between">
+                    <ul>
+                        <li>點收人： abc點收人名</li>
+                        <li>點收日期： 110/10/24</li>
+                        <li>總金額： <span class="total-price">300</span></li>
+                    </ul>
+                    <div>
+                        <button class="btn-border me-2" data-bs-dismiss="modal">取消</button>
+                        <button class="btn-third" data-bs-dismiss="modal">確認</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteComfirm" tabindex="-1" aria-labelledby="deleteComfirmLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteComfirmLabel">刪除</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              確定要刪除此項目？
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-third btn-medium me-2" data-bs-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-border btn-medium ms-2">確定</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="alert_box"><p class="alert_text"></p></div>
+
+
+    <script src="./public/js/jquery/jquery.min.js"></script>
+    <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/loading/loading-bar.js"></script>
+    <script src="./public/js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="./public/js/common.js"></script>
+    <script src="./public/js/money-box.js"></script>
+
+</body>
+</html>

@@ -1978,7 +1978,7 @@
                 var i = this.elCounty;
                 this.options.lang && "en-us" === this.options.lang
                   ? i.options.add(new Option("Select County/City", ""))
-                  : i.options.add(new Option("選擇縣市", ""));
+                  : i.options.add(new Option("縣市", ""));
                 for (
                   var t = function () {
                       var i = this.options.only;
@@ -2114,7 +2114,7 @@
         if (
           (this.options.lang && "en-us" === this.options.lang
             ? t.options.add(new Option("Select District", ""))
-            : t.options.add(new Option("選擇區域", "")),
+            : t.options.add(new Option("區域", "")),
           !i)
         )
           return !0;

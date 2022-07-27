@@ -5,9 +5,13 @@ $(".btn-add-stopfield").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_stop-field").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_stopField_index'></td>");
+    $(document).ready(function(){
+        $(".params_stopField_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 場次
     let params_stop_fieldnum = "<td><input class='table_input params_stop_fieldnum' type='text'></td>";
@@ -41,7 +45,7 @@ $(".btn-add-stopfield").click(function(){
 
     let stopField_table = $("<tr class='editing'></tr>");
     stopField_table.append(table_num, params_stop_fieldnum, params_stop_pujaStart, params_stop_pujaEnd, params_stop_registerStart,params_stop_registerEnd, params_stop_numTotal, params_stop_numCounter, params_stop_numNet , params_stop_price,btn_box );
-    $(".table-params_stop-field").append(stopField_table);
+    stopField_table.insertAfter(".table-params_stop-field .table_title");
 })
 
 // 編輯

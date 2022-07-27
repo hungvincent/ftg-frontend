@@ -75,9 +75,13 @@ $(".btn-add-donationkind").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_donation").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_donation_index'></td>");
+    $(document).ready(function(){
+        $(".params_donation_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 摘要
     let params_donation_summary = "<td><input class='table_input params_donation_summary' type='text'></td>";
@@ -95,22 +99,17 @@ $(".btn-add-donationkind").click(function(){
     let params_donation_price = "<td><input class='table_input params_donation_price' type='number'></td>";
 
     // 開始登記日期
-    let params_donation_startdate = " <td><input class='table_input input-date params_donation_startdate datepickerTW' type='text'></td>";
+    let params_donation_startdate = " <td><input class='table_input input-date params_donation_startdate' type='text'></td>";
 
     // 結束登記日期
-    let params_donation_enddate = "<td><input class='table_input input-date params_donation_enddate datepickerTW' type='text'></td>";
+    let params_donation_enddate = "<td><input class='table_input input-date params_donation_enddate' type='text'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
     let donation_table = $("<tr></tr>");
     donation_table.append(table_num,params_donation_summary,params_donation_numTotal,params_donation_numCounter,params_donation_numNet,params_donation_price,params_donation_startdate,params_donation_enddate,btn_box);
-    $(".table-params_donation").append(donation_table);
-    $(".table-params_donation").find(".datepickerTW").datepicker({
-        changeYear: true,
-        changeMonth: true,
-        dateFormat: 'yy-mm-dd',
-    })
+    donation_table.insertAfter(".table-params_donation .table_title");
 })
 
 // 新增

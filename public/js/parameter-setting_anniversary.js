@@ -5,31 +5,35 @@ $(".btn-add-anniversary").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_anniversary").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_anniversary_index'></td>");
+    $(document).ready(function(){
+        $(".params_anniversary_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 場次
     let params_anniversary_field = "<td><input class='table_input params_anniversary_field' type='text'></td>";
 
     // 法會開始日
-    let params_anniversary_pujaStart = "<td><input class='table_input input-date params_anniversary_pujaStart' type='date'></td>";
+    let params_anniversary_pujaStart = "<td><input class='table_input input-date params_anniversary_pujaStart' type='text'></td>";
 
     // 法會結束日
-    let params_anniversary_pujaEnd = "<td><input class='table_input input-date params_anniversary_pujaEnd' type='date'></td>";
+    let params_anniversary_pujaEnd = "<td><input class='table_input input-date params_anniversary_pujaEnd' type='text'></td>";
 
     // 開始登記日期
-    let params_anniversary_registerStart = " <td><input class='table_input input-date params_anniversary_registerStart' type='date'></td>";
+    let params_anniversary_registerStart = " <td><input class='table_input input-date params_anniversary_registerStart' type='text'></td>";
 
     // 結束登記日期
-    let params_anniversary_registerEnd = "<td><input class='table_input input-date params_anniversary_registerEnd' type='date'></td>";
+    let params_anniversary_registerEnd = "<td><input class='table_input input-date params_anniversary_registerEnd' type='text'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
     let anniversaryField_table = $("<tr></tr>");
     anniversaryField_table.append(table_num,params_anniversary_field,params_anniversary_pujaStart,params_anniversary_pujaEnd,params_anniversary_registerStart,params_anniversary_registerEnd,btn_box);
-    $(".table-params_anniversary").append(anniversaryField_table);
+    anniversaryField_table.insertAfter(".table-params_anniversary .table_title");
 })
 
 // 編輯
@@ -121,10 +125,3 @@ $(document).on("click",".table_add",function(){
         }
     }
 })
-
-// 取消新增
-// $(document).on("click",".table_cancel",function(){
-//     if($(this).parents(".table").hasClass("table-params_anniversary")){
-//         $(".btn-add-anniversary").attr("disabled",false);
-//     }
-// })

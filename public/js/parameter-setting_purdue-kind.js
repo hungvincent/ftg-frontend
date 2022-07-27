@@ -5,9 +5,13 @@ $(".btn-add-purduekind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_purdue-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_purdueKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_purdueKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_purdue_kindname = "<td><input class='table_input params_purdue_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-purduekind").click(function(){
 
     let purdueKind_table = $("<tr></tr>");
     purdueKind_table.append(table_num,params_purdue_kindname,params_purdue_numTotal,params_purdue_numCounter,params_purdue_numNet,params_purdue_price,btn_box);
-    $(".table-params_purdue-kind").append(purdueKind_table);
+    purdueKind_table.insertAfter(".table-params_purdue-kind .table_title");
 })
 
 // 編輯

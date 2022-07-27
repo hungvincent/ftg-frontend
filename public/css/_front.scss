@@ -47,6 +47,9 @@
             }
             input {
                 width: calc(100% - 10px - 70px);
+                &.kind {
+                    width: 70px;
+                }
             }
         }
         &_phone {
@@ -80,15 +83,15 @@
                 width: 340px;
                 display: flex;
                 select {
-                    width: 110px;
+                    width: 80px;
                     margin-right: 10px;
                 }
                 input {
-                    width: calc(100% - (110px + 10px) * 2 - 10px);
+                    width: calc(100% - (80px + 10px) * 2 - 10px);
                 }
             }
         }
-        &_birthLunar, &_birthNational, &_identity, &_memberNum, &_email, &_switch {
+        &_birthLunar, &_birthNational, &_identity, &_memberNum, &_email, &_remark {
             width: 39%;
             label {
                 width: 85px;
@@ -100,10 +103,10 @@
                 }
             }
         }
-        &_birthLunar, &_memberNum {
+        &_birthLunar, &_memberNum, &_remark {
             padding-left: 15px;
         }
-        &_birthTime, &_gender {
+        &_birthTime, &_gender, &_switch {
             width: 22%;
             padding-left: 15px;
             label {
@@ -116,19 +119,19 @@
                 }
             }
         }
-        &_remark {
-            width: 61%;
-            padding-left: 15px;
-            label {
-                width: 85px;
-            }
-            .front_cust_input {
-                width: calc(100% - 85px);
-                input {
-                    width: 100%;
-                }
-            }
-        }
+        // &_remark {
+        //     width: 61%;
+        //     padding-left: 15px;
+        //     label {
+        //         width: 85px;
+        //     }
+        //     .front_cust_input {
+        //         width: calc(100% - 85px);
+        //         input {
+        //             width: 100%;
+        //         }
+        //     }
+        // }
         &_mail {
             width: 22%;
             padding-left: 15px;
@@ -153,12 +156,6 @@
             label {
                 width: 55px;
             }
-            // span {
-            //     width: 70px;
-            //     text-align: right;
-            //     font-weight: 700;
-            //     color: $deep-color;
-            // }
             select {
                 width: calc(100% - 55px);
             }
@@ -169,7 +166,7 @@
             background-color: #fff;
             overflow-y: auto;
             // 螢幕高 - header - front_cust的上下padding - 標題高度 - 標題下margin - 上面表格高度 - 下面表格的上margin - 下面表格的上下padding - 關聯戶那一排的高度 - 關聯戶那排的下margin
-            max-height: calc(100vh - 70px - 40px - 21.59px - 10px - 447.84px - 24px - 40px - 35px - 15px);
+            max-height: calc(100vh - 70px - 40px - 10px - 447.84px - 24px - 40px - 35px - 15px);
             button {
                 padding: 4px 10px;
             }
@@ -182,6 +179,7 @@
                     display: flex;
                     align-items: center;
                     text-align: center;
+                    justify-content: center;
                     border-left: 1px solid $gray-DC;
                     &:first-child {
                         border: 0;
@@ -190,28 +188,28 @@
             }
             .table {
                 &_num {
-                    width: 8%;
+                    width: 12%;
                 }
                 &_name {
-                    width: 24%;
+                    width: 26%;
                 }
                 &_gender {
-                    width: 8%;
+                    width: 12%;
                 }
                 &_age {
-                    width: 8%;
+                    width: 12%;
                 }
                 &_zodiac {
-                    width: 8%;
+                    width: 12%;
                 }
                 &_birth {
                     width: 14%;
                 }
-                &_inst {
-                    width: 16%;
-                }
+                // &_inst {
+                //     width: 16%;
+                // }
                 &_func {
-                    width: 14%;
+                    width: 12%;
                 }
                 &_title {
                     background-color: #C0C0C0;
@@ -232,7 +230,7 @@
         overflow-y: auto;
         &_td {
             &_name {
-                width: 150px;
+                width: 300px;
             }
             &_price {
                 width: 100px;
@@ -252,6 +250,11 @@
                     width: 100%;
                 }
             }
+        }
+        &_date {
+            font-size: 1.3vw;
+            margin-bottom: 15px;
+            color: $deep-color;
         }
         .table {
             // max-width: 850px;
@@ -382,13 +385,69 @@
     }
 }
 
+.report {
+    margin-right: 15px;
+    width: 55px;
+    overflow: hidden;
+    transition: 0.5s;
+    .btn-report {
+        padding: 3px 6px;
+        background-color: #fff;
+        color: #9A0128;
+        margin-right: 10px;
+        font-size: 14px;
+        white-space: nowrap;
+        transition: 0.5s;
+        text-align: center;
+    }
+    &_inform {
+        font-size: 14px;
+        padding: 3px 6px;
+        border: 1px solid #fff;
+        white-space: nowrap;
+        transition: 0.5s;
+        width: 180px;
+        text-align: center;
+        justify-content: center;
+    }
+    &.active {
+        width: 245px;
+    }
+    &_content {
+        position: fixed;
+        width: 600px;
+        background-color: #fff;
+        top: 45px;
+        right: 90px;
+        padding: 15px 20px;
+        color: $common-text;
+        box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+        display: none;
+        button {
+            width: 60px;
+            padding: 3px 5px;
+            margin-left: 15px;
+        }
+        label {
+            width: 50px;
+            text-align: left;
+        }
+        input, select {
+            width: calc((100% - 50px - 60px - 15px - 15px) / 2);
+        }
+        select {
+            margin-left: 15px;
+        }
+    }
+}
+
 @media screen and (max-width:1750px) {
     .front {
         &_cust {
-            &_birthTime {
+            &_birthTime, &_birthTime, &_gender, &_switch {
                 width: 24%;
             }
-            &_birthLunar, &_birthNational {
+            &_birthNational, &_birthLunar, &_identity, &_memberNum, &_email, &_remark {
                 width: 38%;
             }
         }
@@ -411,6 +470,11 @@
             }
             &_btn {
                 width: 70px;
+            }
+            &_td {
+                &_name {
+                    width: 200px;
+                }
             }
         }
     }
@@ -459,7 +523,7 @@
                         width: 45px;
                     }
                     &_name {
-                        width: 100px;
+                        width: calc(100% - 45px - 45px - 45px - 45px - 90px - 70px);
                     }
                     &_gender {
                         width: 45px;
@@ -473,9 +537,9 @@
                     &_birth {
                         width: 90px;
                     }
-                    &_inst {
-                        width: calc(100% - 45px - 100px - 45px - 45px - 45px - 90px - 70px);
-                    }
+                    // &_inst {
+                    //     width: calc(100% - 45px - 100px - 45px - 45px - 45px - 90px - 70px);
+                    // }
                     &_func {
                         width: 70px;
                     }
@@ -499,7 +563,7 @@
             &_item {
                 margin-bottom: 10px;
             }
-            &_birthNational, &_birthLunar, &_identity, &_memberNum, &_email, &_switch {
+            &_birthNational, &_birthLunar, &_identity, &_memberNum, &_email, &_remark {
                 width: 38%;
                 label {
                     width: 65px;
@@ -508,7 +572,17 @@
                     width: calc(100% - 65px);
                 }
             }
-            &_birthTime, &_gender, &_remark {
+            // &_remark {
+            //     width: 62%;
+            //     label {
+            //         width: 65px;
+            //     }
+            //     .front_cust_input {
+            //         width: calc(100% - 65px);
+            //     }
+            // }
+            &_birthTime, &_gender, &_switch {
+                width: 24%;
                 label {
                     width: 40px;
                 }
@@ -516,20 +590,17 @@
                     width: calc(100% - 40px);
                 }
             }
-            &_birthTime, &_gender {
-                width: 24%;
-            }
-            &_birthLunar, &_birthTime, &_memberNum, &_gender, &_remark {
+            &_birthLunar, &_birthTime, &_memberNum, &_gender, &_remark, &_switch {
                 padding-left: 10px;
             }
             &_address {
                 .test-roleAttr-has-zipcode {
                     width: 300px;
                     select {
-                        width: 90px;
+                        width: 65px;
                     }
                     input {
-                        width: calc(100% - (90px + 10px) * 2 - 10px);
+                        width: calc(100% - (65px + 10px) * 2 - 10px);
                     }
                 }
                 .cAddress {

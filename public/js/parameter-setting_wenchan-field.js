@@ -5,31 +5,35 @@ $(".btn-add-wenchanfield").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_wenchan-field").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_wenchanField_index'></td>");
+    $(document).ready(function(){
+        $(".params_wenchanField_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 摘要
     let params_wenchan_content = "<td><input class='table_input params_wenchan_content' type='text'></td>";
 
     // 法會開始日
-    let params_wenchan_pujaStart = "<td><input class='table_input input-date params_wenchan_pujaStart' type='date'></td>";
+    let params_wenchan_pujaStart = "<td><input class='table_input input-date params_wenchan_pujaStart' type='text'></td>";
 
     // 法會結束日
-    let params_wenchan_pujaEnd = "<td><input class='table_input input-date params_wenchan_pujaEnd' type='date'></td>";
+    let params_wenchan_pujaEnd = "<td><input class='table_input input-date params_wenchan_pujaEnd' type='text'></td>";
 
     // 開始登記日期
-    let params_wenchan_registerStart = " <td><input class='table_input input-date params_wenchan_registerStart' type='date'></td>";
+    let params_wenchan_registerStart = " <td><input class='table_input input-date params_wenchan_registerStart' type='text'></td>";
 
     // 結束登記日期
-    let params_wenchan_registerEnd = "<td><input class='table_input input-date params_wenchan_registerEnd' type='date'></td>";
+    let params_wenchan_registerEnd = "<td><input class='table_input input-date params_wenchan_registerEnd' type='text'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
     let wenchanField_table = $("<tr class='editing'></tr>");
     wenchanField_table.append(table_num,params_wenchan_content,params_wenchan_pujaStart,params_wenchan_pujaEnd,params_wenchan_registerStart,params_wenchan_registerEnd,btn_box);
-    $(".table-params_wenchan-field").append(wenchanField_table);
+    wenchanField_table.insertAfter(".table-params_wenchan-field .table_title");
 })
 
 // 編輯

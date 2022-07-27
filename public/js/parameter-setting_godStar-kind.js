@@ -5,9 +5,13 @@ $(".btn-add-godStarkind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_godStar-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_godStarKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_godStarKind_index").each(function(j){
+            let num = j+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_godStar_kindname = "<td><input class='table_input params_godStar_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-godStarkind").click(function(){
 
     let godStarKind_table = $("<tr></tr>");
     godStarKind_table.append(table_num,params_godStar_kindname,params_godStar_numTotal,params_godStar_numCounter,params_godStar_numNet,params_godStar_price,btn_box);
-    $(".table-params_godStar-kind").append(godStarKind_table);
+    godStarKind_table.insertAfter(".table-params_godStar-kind .table_title");
 })
 
 // 編輯

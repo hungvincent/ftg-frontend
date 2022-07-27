@@ -5,9 +5,13 @@ $(".btn-add-lianghuangkind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_lianghuang-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_lianghuangKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_lianghuangKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_lianghuang_kindname = "<td><input class='table_input params_lianghuang_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-lianghuangkind").click(function(){
 
     let lianghuangKind_table = $("<tr></tr>");
     lianghuangKind_table.append(table_num,params_lianghuang_kindname,params_lianghuang_numTotal,params_lianghuang_numCounter,params_lianghuang_numNet,params_lianghuang_price,btn_box);
-    $(".table-params_lianghuang-kind").append(lianghuangKind_table);
+    lianghuangKind_table.insertAfter(".table-params_lianghuang-kind .table_title");
 })
 
 // 編輯

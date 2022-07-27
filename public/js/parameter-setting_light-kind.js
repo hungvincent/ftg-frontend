@@ -5,9 +5,13 @@ $(".btn-add-lightkind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_light-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_lightKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_lightKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_light_kindname = "<td><input class='table_input params_light_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-lightkind").click(function(){
 
     let lightKind_table = $("<tr></tr>");
     lightKind_table.append(table_num,params_light_kindname,params_light_numTotal,params_light_numCounter,params_light_numNet,params_light_price,btn_box);
-    $(".table-params_light-kind").append(lightKind_table);
+    lightKind_table.insertAfter(".table-params_light-kind .table_title");
 })
 
 // 編輯

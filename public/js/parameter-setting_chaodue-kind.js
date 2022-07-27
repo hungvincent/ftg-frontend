@@ -5,9 +5,13 @@ $(".btn-add-chaoduekind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_chaodue-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_chaodueKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_chaodueKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_chaodue_kindname = "<td><input class='table_input params_chaodue_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-chaoduekind").click(function(){
 
     let chaodueKind_table = $("<tr></tr>");
     chaodueKind_table.append(table_num,params_chaodue_kindname,params_chaodue_numTotal,params_chaodue_numCounter,params_chaodue_numNet,params_chaodue_price,btn_box);
-    $(".table-params_chaodue-kind").append(chaodueKind_table);
+    chaodueKind_table.insertAfter(".table-params_chaodue-kind .table_title");
 })
 
 // 編輯

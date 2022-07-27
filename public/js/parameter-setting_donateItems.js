@@ -5,9 +5,13 @@ $(".btn-add-donateItems").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_donateItems").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_donateItems_index'></td>");
+    $(document).ready(function(){
+        $(".params_donateItems_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_donateItems_kind = "<td><input class='table_input params_donateItems_kind' type='text'></td>";
@@ -17,7 +21,7 @@ $(".btn-add-donateItems").click(function(){
 
     let donateItemsField_table = $("<tr></tr>");
     donateItemsField_table.append(table_num,params_donateItems_kind,btn_box);
-    $(".table-params_donateItems").append(donateItemsField_table);
+    donateItemsField_table.insertAfter(".table-params_donateItems .table_title");
 })
 
 // 編輯

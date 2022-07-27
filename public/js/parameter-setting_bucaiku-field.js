@@ -5,24 +5,28 @@ $(".btn-add-bucaikufield").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_bucaiku").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_bucaikuField_index'></td>");
+    $(document).ready(function(){
+        $(".params_bucaikuField_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 場次
     let params_bucaiku_field = "<td><input class='table_input params_bucaiku_field' type='text'></td>";
 
     // 法會開始日
-    let params_bucaiku_pujaStart = "<td><input class='table_input input-date params_bucaiku_pujaStart' type='date'></td>";
+    let params_bucaiku_pujaStart = "<td><input class='table_input input-date params_bucaiku_pujaStart' type='text'></td>";
 
     // 法會結束日
-    let params_bucaiku_pujaEnd = "<td><input class='table_input input-date params_bucaiku_pujaEnd' type='date'></td>";
+    let params_bucaiku_pujaEnd = "<td><input class='table_input input-date params_bucaiku_pujaEnd' type='text'></td>";
 
     // 開始登記日期
-    let params_bucaiku_registerStart = " <td><input class='table_input input-date params_bucaiku_registerStart' type='date'></td>";
+    let params_bucaiku_registerStart = " <td><input class='table_input input-date params_bucaiku_registerStart' type='text'></td>";
 
     // 結束登記日期
-    let params_bucaiku_registerEnd = "<td><input class='table_input input-date params_bucaiku_registerEnd' type='date'></td>";
+    let params_bucaiku_registerEnd = "<td><input class='table_input input-date params_bucaiku_registerEnd' type='text'></td>";
 
     // 總數
     let params_bucaiku_numTotal = "<td><input class='table_input params_bucaiku_num-total' type='number'></td>";
@@ -38,7 +42,7 @@ $(".btn-add-bucaikufield").click(function(){
 
     let bucaikuField_table = $("<tr class='editing'></tr>");
     bucaikuField_table.append(table_num,params_bucaiku_field,params_bucaiku_pujaStart,params_bucaiku_pujaEnd,params_bucaiku_registerStart,params_bucaiku_registerEnd,params_bucaiku_numTotal,params_bucaiku_numCounter,params_bucaiku_numNet,btn_box);
-    $(".table-params_bucaiku-field").append(bucaikuField_table);
+    bucaikuField_table.insertAfter(".table-params_bucaiku-field .table_title");
 })
 
 // 編輯

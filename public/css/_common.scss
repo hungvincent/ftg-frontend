@@ -58,6 +58,9 @@ input {
     outline: none;
     height: 35px;
     width: 75px;
+    &::placeholder {
+        color: rgb(210, 210, 210);
+    }
 }
 
 input::-webkit-outer-spin-button,
@@ -128,10 +131,11 @@ select {
         }
     }
     &_date {
-        // color: #b25169;
         color: #fff;
         font-size: 13px;
         margin: 0;
+        text-align: right;
+        margin-top: 5px;
     }
     &_logout {
         margin-left: 30px;

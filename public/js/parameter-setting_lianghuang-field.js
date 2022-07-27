@@ -5,31 +5,35 @@ $(".btn-add-lianghuangfield").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_lianghuang-field").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_lianghuangField_index'></td>");
+    $(document).ready(function(){
+        $(".params_lianghuangField_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 摘要
     let params_lianghuang_content = "<td><input class='table_input params_lianghuang_content' type='text'></td>";
 
     // 法會開始日
-    let params_lianghuang_pujaStart = "<td><input class='table_input input-date params_lianghuang_pujaStart' type='date'></td>";
+    let params_lianghuang_pujaStart = "<td><input class='table_input input-date params_lianghuang_pujaStart' type='text'></td>";
 
     // 法會結束日
-    let params_lianghuang_pujaEnd = "<td><input class='table_input input-date params_lianghuang_pujaEnd' type='date'></td>";
+    let params_lianghuang_pujaEnd = "<td><input class='table_input input-date params_lianghuang_pujaEnd' type='text'></td>";
 
     // 開始登記日期
-    let params_lianghuang_registerStart = " <td><input class='table_input input-date params_lianghuang_registerStart' type='date'></td>";
+    let params_lianghuang_registerStart = " <td><input class='table_input input-date params_lianghuang_registerStart' type='text'></td>";
 
     // 結束登記日期
-    let params_lianghuang_registerEnd = "<td><input class='table_input input-date params_lianghuang_registerEnd' type='date'></td>";
+    let params_lianghuang_registerEnd = "<td><input class='table_input input-date params_lianghuang_registerEnd' type='text'></td>";
 
     // 編輯
     let btn_box = "<td><button class='btn-third btn-small me-2 table_edit d-none'>編輯</button><button class='btn-border btn-small table_delete d-none' data-bs-toggle='modal' data-bs-target='#deleteComfirm'>刪除</button><button class='btn-third btn-small btn-change table_change d-none me-2'>確定變更</button><button class='btn-border btn-small table_change-cancel d-none'>取消</button><button class='btn-third btn-small btn-add table_add me-2'>確定新增</button><button class='btn-border btn-small btn-add table_cancel d-inline-block'>取消</button></td>";
 
     let lianghuangField_table = $("<tr class='editing'></tr>");
     lianghuangField_table.append(table_num,params_lianghuang_content,params_lianghuang_pujaStart,params_lianghuang_pujaEnd,params_lianghuang_registerStart,params_lianghuang_registerEnd,btn_box);
-    $(".table-params_lianghuang-field").append(lianghuangField_table);
+    lianghuangField_table.insertAfter(".table-params_lianghuang-field .table_title");
 })
 
 // 編輯

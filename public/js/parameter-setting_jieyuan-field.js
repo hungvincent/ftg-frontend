@@ -5,24 +5,28 @@ $(".btn-add-jieyuanfield").click(function(){
     $(this).attr("disabled",true);
 
     // 序號
-    let num = $(".table-params_jieyuan").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_jieyuanField_index'></td>");
+    $(document).ready(function(){
+        $(".params_jieyuanField_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 場次
     let params_jieyuan_field = "<td><input class='table_input params_jieyuan_field' type='text'></td>";
 
     // 法會開始日
-    let params_jieyuan_pujaStart = "<td><input class='table_input input-date params_jieyuan_pujaStart' type='date'></td>";
+    let params_jieyuan_pujaStart = "<td><input class='table_input input-date params_jieyuan_pujaStart' type='text'></td>";
 
     // 法會結束日
-    let params_jieyuan_pujaEnd = "<td><input class='table_input input-date params_jieyuan_pujaEnd' type='date'></td>";
+    let params_jieyuan_pujaEnd = "<td><input class='table_input input-date params_jieyuan_pujaEnd' type='text'></td>";
 
     // 開始登記日期
-    let params_jieyuan_registerStart = " <td><input class='table_input input-date params_jieyuan_registerStart' type='date'></td>";
+    let params_jieyuan_registerStart = " <td><input class='table_input input-date params_jieyuan_registerStart' type='text'></td>";
 
     // 結束登記日期
-    let params_jieyuan_registerEnd = "<td><input class='table_input input-date params_jieyuan_registerEnd' type='date'></td>";
+    let params_jieyuan_registerEnd = "<td><input class='table_input input-date params_jieyuan_registerEnd' type='text'></td>";
 
     // 總數
     let params_jieyuan_numTotal = "<td><input class='table_input params_jieyuan_num-total' type='number'></td>";
@@ -38,7 +42,7 @@ $(".btn-add-jieyuanfield").click(function(){
 
     let jieyuanField_table = $("<tr class='editing'></tr>");
     jieyuanField_table.append(table_num,params_jieyuan_field,params_jieyuan_pujaStart,params_jieyuan_pujaEnd,params_jieyuan_registerStart,params_jieyuan_registerEnd,params_jieyuan_numTotal,params_jieyuan_numCounter,params_jieyuan_numNet,btn_box);
-    $(".table-params_jieyuan-field").append(jieyuanField_table);
+    jieyuanField_table.insertAfter(".table-params_jieyuan-field .table_title");
 })
 
 // 編輯

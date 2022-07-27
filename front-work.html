@@ -26,8 +26,22 @@
         <div class="header_right d-flex align-items-center h-100">
             <div>
                 <div class="header_user d-flex align-items-center justify-content-end">
-                    <img src="./public/img/icon_user.svg" alt="">
-                    <span>王小明</span>
+                  <div class="report d-flex align-items-center">
+                    <button class="btn-report">日報表</button>
+                    <div class="report_inform d-flex align-items-center">洪鳴聲 2010/01/01 12:00</div>
+                  </div>
+                  <div class="report_content">
+                    <div class="d-flex align-items-center">
+                      <label for="">日期</label>
+                      <input type="text">
+                      <select name="" id="">
+                        <option value="">交易明細表</option>
+                      </select>
+                      <button class="btn-third">列印</button>
+                    </div>
+                  </div>
+                  <img src="./public/img/icon_user.svg" alt="">
+                  <span>王小明</span>
                 </div>
                 <div class="header_date">
                     <span class="me-2">壬寅年正月初五日</span>
@@ -49,7 +63,7 @@
                 <div class="nav_close"><img src="./public/img/icon_close-white.svg" alt=""></div>
                 <ul>
                     <li><a href="./front-work.html">前台作業</a></li>
-                    <li><a href="">賽錢箱</a></li>
+                    <li><a href="./money-box.html">賽錢箱</a></li>
                     <li><a href="./parameter-setting.html">參數設定</a></li>
                     <li><a href="">報表列印</a></li>
                     <li><a href="">查詢統計</a></li>
@@ -66,16 +80,12 @@
     <main>
         <div class="d-flex">
             <div class="front_cust">
-                <h2>客戶資料</h2>
                 <div class="front_cust_form">
                   <form action="">
                     <div class="front_cust_item front_cust_name">
                       <label for="">姓名</label>
                       <div class="front_cust_input">
-                        <select name="" id="">
-                          <option value="">一般</option>
-                          <option value="">契子</option>
-                        </select>
+                        <input class="kind" type="text" value="一般" disabled>
                         <input type="text">
                       </div>
                     </div>
@@ -165,6 +175,7 @@
                         <select name="" id="">
                           <option value="">男</option>
                           <option value="">女</option>
+                          <option value="">吉</option>
                         </select>
                       </div>
                     </div>
@@ -180,16 +191,16 @@
                         <input type="text">
                       </div>
                     </div>
-                    <div class="front_cust_item justify-content-between w-100 mb-0">
-                      <div class="front_cust_item front_cust_switch mb-0">
-                        <label for="">啟用</label>
-                        <div class="front_cust_input">
-                          <select name="" id="">
-                            <option value="">是</option>
-                            <option value="">否</option>
-                          </select>
-                        </div>
+                    <div class="front_cust_item front_cust_switch">
+                      <label for="">啟用</label>
+                      <div class="front_cust_input">
+                        <select name="" id="">
+                          <option value="">是</option>
+                          <option value="">否</option>
+                        </select>
                       </div>
+                    </div>
+                    <div class="front_cust_item justify-content-end w-100 mb-0">
                       <div class="front_cust_btn">
                         <button class="btn-third">新增</button>
                         <button class="btn-third">儲存</button>
@@ -212,7 +223,6 @@
                         <div class="table_age">年齡</div>
                         <div class="table_zodiac">生肖</div>
                         <div class="table_birth">農曆生日</div>
-                        <div class="table_inst">制化</div>
                         <div class="table_func">功能</div>
                       </li>
                     </ul>
@@ -224,7 +234,6 @@
                         <div class="table_age">25</div>
                         <div class="table_zodiac">鼠</div>
                         <div class="table_birth">085. 01. 30</div>
-                        <div class="table_inst">紫微星高照</div>
                         <div class="table_func"><button class="btn-third btn-record">紀錄</button></div>
                       </li>
                       <li class="d-flex sortable_item">
@@ -234,7 +243,6 @@
                         <div class="table_age">25</div>
                         <div class="table_zodiac">鼠</div>
                         <div class="table_birth">085. 01. 01</div>
-                        <div class="table_inst">紫微星高照</div>
                         <div class="table_func"><button class="btn-third btn-record">紀錄</button></div>
                       </li>
                       <li class="d-flex sortable_item">
@@ -244,7 +252,6 @@
                         <div class="table_age">25</div>
                         <div class="table_zodiac">鼠</div>
                         <div class="table_birth">085. 01. 01</div>
-                        <div class="table_inst">紫微星高照</div>
                         <div class="table_func"><button class="btn-third btn-record">紀錄</button></div>
                       </li>
                       <li class="d-flex sortable_item">
@@ -254,7 +261,6 @@
                         <div class="table_age">25</div>
                         <div class="table_zodiac">鼠</div>
                         <div class="table_birth">085. 01. 01</div>
-                        <div class="table_inst">紫微星高照</div>
                         <div class="table_func"><button class="btn-third btn-record">紀錄</button></div>
                       </li>
                       <li class="d-flex sortable_item">
@@ -264,7 +270,6 @@
                         <div class="table_age">25</div>
                         <div class="table_zodiac">鼠</div>
                         <div class="table_birth">085. 01. 01</div>
-                        <div class="table_inst">紫微星高照</div>
                         <div class="table_func"><button class="btn-third btn-record">紀錄</button></div>
                       </li>
                       <li class="d-flex sortable_item">
@@ -274,7 +279,6 @@
                         <div class="table_age">25</div>
                         <div class="table_zodiac">鼠</div>
                         <div class="table_birth">085. 01. 01</div>
-                        <div class="table_inst">紫微星高照</div>
                         <div class="table_func"><button class="btn-third btn-record">紀錄</button></div>
                       </li>
                     </ul>
@@ -377,11 +381,24 @@
                   <div class="nav-link" id="counter_donate_items-tab" data-bs-toggle="pill" data-bs-target="#counter_donate_items" type="button" role="tab" aria-controls="counter_donate_items" aria-selected="false">物品捐獻</div>
                 </li>
                 <!-- 物品捐獻 end -->
+
+                <!-- 結緣品 -->
+                <li class="nav-item" role="presentation">
+                  <div class="nav-link" id="counter_befriend-tab" data-bs-toggle="pill" data-bs-target="#counter_befriend" type="button" role="tab" aria-controls="counter_befriend" aria-selected="false">結緣品</div>
+                </li>
+                <!-- 結緣品 end -->
+
+                <!-- 拜契登記 -->
+                <li class="nav-item" role="presentation">
+                  <div class="nav-link" id="counter_baiche-tab" data-bs-toggle="pill" data-bs-target="#counter_baiche" type="button" role="tab" aria-controls="counter_baiche" aria-selected="false">拜契登記</div>
+                </li>
+                <!-- 拜契登記 end -->
             </ul>    
             <div class="front_detail">
               <div class="tab-content" id="pills-tabContent">
                 <!-- 油香 -->
                 <div class="tab-pane fade show active" id="counter_donation" role="tabpanel" aria-labelledby="counter_donation-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <!-- <select class="year-select" name="" id="">
                     <option value="">110辛丑年</option>
                   </select> -->
@@ -431,6 +448,7 @@
 
                 <!-- 建設 -->
                 <div class="tab-pane fade show" id="counter_construction" role="tabpanel" aria-labelledby="counter_construction-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -477,10 +495,12 @@
 
                 <!-- 點燈 -->
                 <div class="tab-pane fade show" id="counter_light" role="tabpanel" aria-labelledby="counter_light-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
                         <td>客戶姓名</td>
+                        <td>制化</td>
                         <td>燈種</td>
                         <td>金額</td>
                       </tr>
@@ -488,6 +508,7 @@
                         <td class="front_detail_td_name">
                           <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
                         </td>
+                        <td class="front_detail_td_system">紫微星高照</td>
                         <td class="">
                           <select class="kind-select" name="" id=""></select>
                         </td>
@@ -522,6 +543,7 @@
 
                 <!-- 玉皇上帝禮斗 -->
                 <div class="tab-pane fade show" id="counter_god_star" role="tabpanel" aria-labelledby="counter_god_star-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -567,6 +589,7 @@
 
                 <!-- 制解 -->
                 <div class="tab-pane fade show" id="counter_stop_resolve" role="tabpanel" aria-labelledby="counter_stop_resolve-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="d-flex align-items-center justify-content-between mb-3">
                     <select class="resolve_select" name="" id="">
                       <option value="請選擇" disabled selected>請選擇</option>
@@ -621,6 +644,7 @@
 
                 <!-- 進香 -->
                 <div class="tab-pane fade show" id="counter_pilgrimage" role="tabpanel" aria-labelledby="counter_pilgrimage-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -676,6 +700,7 @@
 
                 <!-- 文昌法會 -->
                 <div class="tab-pane fade show" id="counter_wenchan" role="tabpanel" aria-labelledby="counter_wenchan-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -721,6 +746,7 @@
 
                 <!-- 五年千歲禮斗 -->
                 <div class="tab-pane fade show" id="counter_prince_star" role="tabpanel" aria-labelledby="counter_prince_star-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -766,6 +792,7 @@
 
                 <!-- 普渡 -->
                 <div class="tab-pane fade show" id="counter_purdue" role="tabpanel" aria-labelledby="counter_purdue-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -811,6 +838,7 @@
 
                 <!-- 超渡 -->
                 <div class="tab-pane fade show" id="counter_chaodue" role="tabpanel" aria-labelledby="counter_chaodue-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -859,6 +887,7 @@
 
                 <!-- 建廟慶典 -->
                 <div class="tab-pane fade show" id="counter_anniversary" role="tabpanel" aria-labelledby="counter_anniversary-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -906,6 +935,7 @@
 
                 <!-- 梁皇寶懺 -->
                 <div class="tab-pane fade show" id="counter_lianghuang" role="tabpanel" aria-labelledby="counter_lianghuang-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -951,16 +981,21 @@
 
                 <!-- 解冤法會 -->
                 <div class="tab-pane fade show" id="counter_jieyuan" role="tabpanel" aria-labelledby="counter_jieyuan-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
                         <td>客戶姓名</td>
+                        <td>歲次</td>
                         <td>參加</td>
                         <td>金額</td>
                       </tr>
                       <tr>
                         <td class="front_detail_td_name">
                           <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td class="front_detail_td_price">
+                          <input type="text">
                         </td>
                         <td>
                           <select class="kind-select" name="" id=""></select>
@@ -996,16 +1031,21 @@
 
                 <!-- 補財庫 -->
                 <div class="tab-pane fade show" id="counter_bucaiku" role="tabpanel" aria-labelledby="counter_bucaiku-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
                         <td>客戶姓名</td>
+                        <td>歲次</td>
                         <td>場次</td>
                         <td>金額</td>
                       </tr>
                       <tr>
                         <td class="front_detail_td_name">
                           <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td class="front_detail_td_price">
+                          <input type="text">
                         </td>
                         <td>
                           <select class="kind-select" name="" id=""></select>
@@ -1041,6 +1081,7 @@
 
                 <!-- 金牌捐獻 -->
                 <div class="tab-pane fade show" id="counter_donate_gold" role="tabpanel" aria-labelledby="counter_donate_gold-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -1082,6 +1123,7 @@
 
                 <!-- 物品捐獻 -->
                 <div class="tab-pane fade show" id="counter_donate_items" role="tabpanel" aria-labelledby="counter_donate_items-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
                   <div class="front_detail_table-box">
                     <table class="table table-brown front_detail_table">
                       <tr class="table_title">
@@ -1109,6 +1151,107 @@
                   </div>
                 </div>
                 <!-- 物品捐獻 end -->
+
+                <!-- 結緣品 -->
+                <div class="tab-pane fade show" id="counter_befriend" role="tabpanel" aria-labelledby="counter_befriend-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>歲次</td>
+                        <td>場次</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td class="front_detail_td_name">
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td class="front_detail_td_price">
+                          <input type="text">
+                        </td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td class="front_detail_td_price">
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center front_detail_remark">
+                      <label for="">備註</label>
+                      <select name="" id="">
+                        <option value="請選擇" selected disabled>請選擇</option>
+                      </select>
+                      <input type="text">
+                    </div>
+                    <div class="d-flex align-items-center front_detail_pay">
+                      <div class="d-flex align-items-center">
+                        <label for="">付款方式</label>
+                        <select name="" id="">
+                          <option value="現金" selected>現金</option>
+                        </select>
+                        <label class="front_detail_pay_total" for="">總金額</label>
+                        <input type="text">
+                      </div>
+                    </div>
+                    <button class="btn-third front_detail_btn">確認</button>
+                  </div>
+                </div>
+                <!-- 結緣品 end -->
+
+                <!-- 拜契登記 -->
+                <div class="tab-pane fade show" id="counter_baiche" role="tabpanel" aria-labelledby="counter_baiche-tab">
+                  <h2 class="front_detail_date">2022/07/03</h2>
+                  <div class="front_detail_table-box">
+                    <table class="table table-brown front_detail_table">
+                      <tr class="table_title">
+                        <td>客戶姓名</td>
+                        <td>神尊</td>
+                        <td>拜契</td>
+                        <td>金額</td>
+                      </tr>
+                      <tr>
+                        <td class="front_detail_td_name">
+                          <div class="front_detail_name">顯示名顯示名顯示顯示顯示名顯示名顯示顯示</div>
+                        </td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td>
+                          <select class="kind-select" name="" id=""></select>
+                        </td>
+                        <td class="front_detail_td_price">
+                          <input type="number">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center front_detail_remark">
+                      <label for="">備註</label>
+                      <select name="" id="">
+                        <option value="請選擇" selected disabled>請選擇</option>
+                      </select>
+                      <input type="text">
+                    </div>
+                    <div class="d-flex align-items-center front_detail_pay">
+                      <div class="d-flex align-items-center">
+                        <label for="">付款方式</label>
+                        <select name="" id="">
+                          <option value="現金" selected>現金</option>
+                        </select>
+                        <label class="front_detail_pay_total" for="">總金額</label>
+                        <input type="text">
+                      </div>
+                    </div>
+                    <button class="btn-third front_detail_btn">確認</button>
+                  </div>
+                </div>
+                <!-- 拜契登記 end -->
+                
               </div>
             </div>
 

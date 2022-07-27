@@ -27,9 +27,7 @@ $(document).on("change", ".district", function () {
 $(function () {
   $("#sortable").sortable({
     beforeStop: function () {
-      $("#sortable")
-        .find(".table_num")
-        .each(function (i) {
+      $("#sortable").find(".table_num").each(function (i) {
           let index = i + 1;
           $(this).text(index);
         });
@@ -53,4 +51,10 @@ $(".btn-record").each(function(){
 })
 $(".front-tab .nav-link").click(function(){
     $(".front_record").fadeOut(300);
+})
+
+// 日報表
+$(".btn-report").click(function(){
+  $(this).parents(".report").toggleClass("active");
+  $(".report_content").fadeToggle(500);
 })

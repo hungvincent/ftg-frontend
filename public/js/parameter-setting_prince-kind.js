@@ -5,9 +5,13 @@ $(".btn-add-princekind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_prince-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_princeKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_princeKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 種類
     let params_prince_kindname = "<td><input class='table_input params_prince_kindname' type='text'></td>";
@@ -29,7 +33,7 @@ $(".btn-add-princekind").click(function(){
 
     let princeKind_table = $("<tr></tr>");
     princeKind_table.append(table_num,params_prince_kindname,params_prince_numTotal,params_prince_numCounter,params_prince_numNet,params_prince_price,btn_box);
-    $(".table-params_prince-kind").append(princeKind_table);
+    princeKind_table.insertAfter(".table-params_prince-kind .table_title");
 })
 
 // 編輯

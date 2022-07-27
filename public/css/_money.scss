@@ -1,0 +1,110 @@
+.money {
+    &_left {
+        padding: 20px 25px;
+        background-color: #fff;
+        height: calc(100vh - 70px);
+        width: 50%;
+    }
+    &_right {
+        padding: 20px 25px;
+        width: 50%;
+    }
+    &_table {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: auto;
+        &-add {
+            // 螢幕高 - header高 - 上padding - 標題高度 - 上margin
+            max-height: calc(100vh - 70px - 20px - 41.52px - 20px - 35px);
+        }
+        &-detail {
+            // 螢幕高 - header高 - 上padding - 標題高度 - 上margin
+            max-height: calc(100vh - 70px - 20px - 41.52px - 20px);
+
+        }
+        table {
+            width: 100%;
+        }
+        input {
+            width: 100%;
+        }
+    }
+    &Add {
+        &_bottom {
+            button {
+                width: 60px;
+                padding: 5px;
+            }
+            >div {
+                width: calc((100% - 60px) / 3);
+                padding-right: 15px;
+                &.accept {
+                    &-name {
+                        label {
+                            width: 60px;
+                        }
+                        input {
+                            width: calc(100% - 60px);
+                        }
+                    }
+                    &-date {
+                        label {
+                            width: 78px;
+                        }
+                        input {
+                            width: calc(100% - 78px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#edit-detail {
+    table {
+        margin-top: 0;
+    }
+    .modal-body {
+        padding-top: 15px;
+        padding-bottom: 30px;
+    }
+    ul {
+        li{ 
+            text-align: left;
+            color: #909090;
+        }
+    }
+    button {
+        padding: 10px 25px;
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .money {
+        &Add {
+            &_bottom {
+                >div {
+                    &.accept {
+                        &-name {
+                            label {
+                                width: 50px;
+                            }
+                            input {
+                                width: calc(100% - 50px);
+                            }
+                        }
+                        &-date {
+                            label {
+                                width: 68px;
+                            }
+                            input {
+                                width: calc(100% - 68px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,9 +5,13 @@ $(".btn-add-jieyuankind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_jieyuan-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_jieyuanKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_jieyuanKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 歲次
     let params_jieyuan_kindname = "<td><input class='table_input params_jieyuan_age' type='text'></td>";
@@ -21,6 +25,7 @@ $(".btn-add-jieyuankind").click(function(){
     let jieyuanKind_table = $("<tr></tr>");
     jieyuanKind_table.append(table_num,params_jieyuan_kindname,params_jieyuan_price,btn_box);
     $(".table-params_jieyuan-kind").append(jieyuanKind_table);
+    jieyuanKind_table.insertAfter(".table-params_jieyuan-kind .table_title");
 })
 
 // 編輯

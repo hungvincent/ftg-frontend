@@ -43,6 +43,22 @@ input {
   width: 75px;
 }
 
+input::-webkit-input-placeholder {
+  color: #d2d2d2;
+}
+
+input:-ms-input-placeholder {
+  color: #d2d2d2;
+}
+
+input::-ms-input-placeholder {
+  color: #d2d2d2;
+}
+
+input::placeholder {
+  color: #d2d2d2;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -127,6 +143,8 @@ select {
   color: #fff;
   font-size: 13px;
   margin: 0;
+  text-align: right;
+  margin-top: 5px;
 }
 
 .header_logout {
@@ -809,6 +827,10 @@ footer {
   width: calc(100% - 10px - 70px);
 }
 
+.front_cust_name input.kind {
+  width: 70px;
+}
+
 .front_cust_phone {
   width: 78%;
 }
@@ -854,65 +876,48 @@ footer {
 }
 
 .front_cust_address .test-roleAttr-has-zipcode select {
-  width: 110px;
+  width: 80px;
   margin-right: 10px;
 }
 
 .front_cust_address .test-roleAttr-has-zipcode input {
-  width: calc(100% - (110px + 10px) * 2 - 10px);
+  width: calc(100% - (80px + 10px) * 2 - 10px);
 }
 
-.front_cust_birthLunar, .front_cust_birthNational, .front_cust_identity, .front_cust_memberNum, .front_cust_email, .front_cust_switch {
+.front_cust_birthLunar, .front_cust_birthNational, .front_cust_identity, .front_cust_memberNum, .front_cust_email, .front_cust_remark {
   width: 39%;
 }
 
-.front_cust_birthLunar label, .front_cust_birthNational label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_email label, .front_cust_switch label {
+.front_cust_birthLunar label, .front_cust_birthNational label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_email label, .front_cust_remark label {
   width: 85px;
 }
 
-.front_cust_birthLunar .front_cust_input, .front_cust_birthNational .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_email .front_cust_input, .front_cust_switch .front_cust_input {
+.front_cust_birthLunar .front_cust_input, .front_cust_birthNational .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_email .front_cust_input, .front_cust_remark .front_cust_input {
   width: calc(100% - 85px);
 }
 
-.front_cust_birthLunar .front_cust_input input, .front_cust_birthNational .front_cust_input input, .front_cust_identity .front_cust_input input, .front_cust_memberNum .front_cust_input input, .front_cust_email .front_cust_input input, .front_cust_switch .front_cust_input input {
+.front_cust_birthLunar .front_cust_input input, .front_cust_birthNational .front_cust_input input, .front_cust_identity .front_cust_input input, .front_cust_memberNum .front_cust_input input, .front_cust_email .front_cust_input input, .front_cust_remark .front_cust_input input {
   width: 100%;
 }
 
-.front_cust_birthLunar, .front_cust_memberNum {
+.front_cust_birthLunar, .front_cust_memberNum, .front_cust_remark {
   padding-left: 15px;
 }
 
-.front_cust_birthTime, .front_cust_gender {
+.front_cust_birthTime, .front_cust_gender, .front_cust_switch {
   width: 22%;
   padding-left: 15px;
 }
 
-.front_cust_birthTime label, .front_cust_gender label {
+.front_cust_birthTime label, .front_cust_gender label, .front_cust_switch label {
   width: 50px;
 }
 
-.front_cust_birthTime .front_cust_input, .front_cust_gender .front_cust_input {
+.front_cust_birthTime .front_cust_input, .front_cust_gender .front_cust_input, .front_cust_switch .front_cust_input {
   width: calc(100% - 50px);
 }
 
-.front_cust_birthTime .front_cust_input input, .front_cust_birthTime .front_cust_input select, .front_cust_gender .front_cust_input input, .front_cust_gender .front_cust_input select {
-  width: 100%;
-}
-
-.front_cust_remark {
-  width: 61%;
-  padding-left: 15px;
-}
-
-.front_cust_remark label {
-  width: 85px;
-}
-
-.front_cust_remark .front_cust_input {
-  width: calc(100% - 85px);
-}
-
-.front_cust_remark .front_cust_input input {
+.front_cust_birthTime .front_cust_input input, .front_cust_birthTime .front_cust_input select, .front_cust_gender .front_cust_input input, .front_cust_gender .front_cust_input select, .front_cust_switch .front_cust_input input, .front_cust_switch .front_cust_input select {
   width: 100%;
 }
 
@@ -960,7 +965,7 @@ footer {
   text-align: center;
   background-color: #fff;
   overflow-y: auto;
-  max-height: calc(100vh - 70px - 40px - 21.59px - 10px - 447.84px - 24px - 40px - 35px - 15px);
+  max-height: calc(100vh - 70px - 40px - 10px - 447.84px - 24px - 40px - 35px - 15px);
 }
 
 .front_family_table button {
@@ -982,6 +987,9 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border-left: 1px solid #DCDCDC;
 }
 
@@ -990,35 +998,31 @@ footer {
 }
 
 .front_family_table .table_num {
-  width: 8%;
+  width: 12%;
 }
 
 .front_family_table .table_name {
-  width: 24%;
+  width: 26%;
 }
 
 .front_family_table .table_gender {
-  width: 8%;
+  width: 12%;
 }
 
 .front_family_table .table_age {
-  width: 8%;
+  width: 12%;
 }
 
 .front_family_table .table_zodiac {
-  width: 8%;
+  width: 12%;
 }
 
 .front_family_table .table_birth {
   width: 14%;
 }
 
-.front_family_table .table_inst {
-  width: 16%;
-}
-
 .front_family_table .table_func {
-  width: 14%;
+  width: 12%;
 }
 
 .front_family_table .table_title {
@@ -1040,7 +1044,7 @@ footer {
 }
 
 .front_detail_td_name {
-  width: 150px;
+  width: 300px;
 }
 
 .front_detail_td_price {
@@ -1065,6 +1069,12 @@ footer {
 
 .front_detail_td_fund select {
   width: 100%;
+}
+
+.front_detail_date {
+  font-size: 1.3vw;
+  margin-bottom: 15px;
+  color: #473218;
 }
 
 .front_detail .table {
@@ -1203,11 +1213,81 @@ footer {
   color: #4D4D4D;
 }
 
+.report {
+  margin-right: 15px;
+  width: 55px;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.report .btn-report {
+  padding: 3px 6px;
+  background-color: #fff;
+  color: #9A0128;
+  margin-right: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.report_inform {
+  font-size: 14px;
+  padding: 3px 6px;
+  border: 1px solid #fff;
+  white-space: nowrap;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 180px;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.report.active {
+  width: 245px;
+}
+
+.report_content {
+  position: fixed;
+  width: 600px;
+  background-color: #fff;
+  top: 45px;
+  right: 90px;
+  padding: 15px 20px;
+  color: #4D4D4D;
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.report_content button {
+  width: 60px;
+  padding: 3px 5px;
+  margin-left: 15px;
+}
+
+.report_content label {
+  width: 50px;
+  text-align: left;
+}
+
+.report_content input, .report_content select {
+  width: calc((100% - 50px - 60px - 15px - 15px) / 2);
+}
+
+.report_content select {
+  margin-left: 15px;
+}
+
 @media screen and (max-width: 1750px) {
-  .front_cust_birthTime {
+  .front_cust_birthTime, .front_cust_birthTime, .front_cust_gender, .front_cust_switch {
     width: 24%;
   }
-  .front_cust_birthLunar, .front_cust_birthNational {
+  .front_cust_birthNational, .front_cust_birthLunar, .front_cust_identity, .front_cust_memberNum, .front_cust_email, .front_cust_remark {
     width: 38%;
   }
   .front_detail_remark {
@@ -1228,6 +1308,9 @@ footer {
   }
   .front_detail_btn {
     width: 70px;
+  }
+  .front_detail_td_name {
+    width: 200px;
   }
 }
 
@@ -1271,7 +1354,7 @@ footer {
     width: 45px;
   }
   .front_family_table .table_name {
-    width: 100px;
+    width: calc(100% - 45px - 45px - 45px - 45px - 90px - 70px);
   }
   .front_family_table .table_gender {
     width: 45px;
@@ -1284,9 +1367,6 @@ footer {
   }
   .front_family_table .table_birth {
     width: 90px;
-  }
-  .front_family_table .table_inst {
-    width: calc(100% - 45px - 100px - 45px - 45px - 45px - 90px - 70px);
   }
   .front_family_table .table_func {
     width: 70px;
@@ -1309,35 +1389,35 @@ footer {
   .front_cust_item {
     margin-bottom: 10px;
   }
-  .front_cust_birthNational, .front_cust_birthLunar, .front_cust_identity, .front_cust_memberNum, .front_cust_email, .front_cust_switch {
+  .front_cust_birthNational, .front_cust_birthLunar, .front_cust_identity, .front_cust_memberNum, .front_cust_email, .front_cust_remark {
     width: 38%;
   }
-  .front_cust_birthNational label, .front_cust_birthLunar label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_email label, .front_cust_switch label {
+  .front_cust_birthNational label, .front_cust_birthLunar label, .front_cust_identity label, .front_cust_memberNum label, .front_cust_email label, .front_cust_remark label {
     width: 65px;
   }
-  .front_cust_birthNational .front_cust_input, .front_cust_birthLunar .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_email .front_cust_input, .front_cust_switch .front_cust_input {
+  .front_cust_birthNational .front_cust_input, .front_cust_birthLunar .front_cust_input, .front_cust_identity .front_cust_input, .front_cust_memberNum .front_cust_input, .front_cust_email .front_cust_input, .front_cust_remark .front_cust_input {
     width: calc(100% - 65px);
   }
-  .front_cust_birthTime label, .front_cust_gender label, .front_cust_remark label {
-    width: 40px;
-  }
-  .front_cust_birthTime .front_cust_input, .front_cust_gender .front_cust_input, .front_cust_remark .front_cust_input {
-    width: calc(100% - 40px);
-  }
-  .front_cust_birthTime, .front_cust_gender {
+  .front_cust_birthTime, .front_cust_gender, .front_cust_switch {
     width: 24%;
   }
-  .front_cust_birthLunar, .front_cust_birthTime, .front_cust_memberNum, .front_cust_gender, .front_cust_remark {
+  .front_cust_birthTime label, .front_cust_gender label, .front_cust_switch label {
+    width: 40px;
+  }
+  .front_cust_birthTime .front_cust_input, .front_cust_gender .front_cust_input, .front_cust_switch .front_cust_input {
+    width: calc(100% - 40px);
+  }
+  .front_cust_birthLunar, .front_cust_birthTime, .front_cust_memberNum, .front_cust_gender, .front_cust_remark, .front_cust_switch {
     padding-left: 10px;
   }
   .front_cust_address .test-roleAttr-has-zipcode {
     width: 300px;
   }
   .front_cust_address .test-roleAttr-has-zipcode select {
-    width: 90px;
+    width: 65px;
   }
   .front_cust_address .test-roleAttr-has-zipcode input {
-    width: calc(100% - (90px + 10px) * 2 - 10px);
+    width: calc(100% - (65px + 10px) * 2 - 10px);
   }
   .front_cust_address .cAddress {
     width: calc(100% - 300px);
@@ -1363,6 +1443,99 @@ footer {
   }
   .front_detail .resolve_label {
     width: 65px;
+  }
+}
+
+.money_left {
+  padding: 20px 25px;
+  background-color: #fff;
+  height: calc(100vh - 70px);
+  width: 50%;
+}
+
+.money_right {
+  padding: 20px 25px;
+  width: 50%;
+}
+
+.money_table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.money_table-add {
+  max-height: calc(100vh - 70px - 20px - 41.52px - 20px - 35px);
+}
+
+.money_table-detail {
+  max-height: calc(100vh - 70px - 20px - 41.52px - 20px);
+}
+
+.money_table table {
+  width: 100%;
+}
+
+.money_table input {
+  width: 100%;
+}
+
+.moneyAdd_bottom button {
+  width: 60px;
+  padding: 5px;
+}
+
+.moneyAdd_bottom > div {
+  width: calc((100% - 60px) / 3);
+  padding-right: 15px;
+}
+
+.moneyAdd_bottom > div.accept-name label {
+  width: 60px;
+}
+
+.moneyAdd_bottom > div.accept-name input {
+  width: calc(100% - 60px);
+}
+
+.moneyAdd_bottom > div.accept-date label {
+  width: 78px;
+}
+
+.moneyAdd_bottom > div.accept-date input {
+  width: calc(100% - 78px);
+}
+
+#edit-detail table {
+  margin-top: 0;
+}
+
+#edit-detail .modal-body {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+#edit-detail ul li {
+  text-align: left;
+  color: #909090;
+}
+
+#edit-detail button {
+  padding: 10px 25px;
+}
+
+@media screen and (max-width: 1500px) {
+  .moneyAdd_bottom > div.accept-name label {
+    width: 50px;
+  }
+  .moneyAdd_bottom > div.accept-name input {
+    width: calc(100% - 50px);
+  }
+  .moneyAdd_bottom > div.accept-date label {
+    width: 68px;
+  }
+  .moneyAdd_bottom > div.accept-date input {
+    width: calc(100% - 68px);
   }
 }
 /*# sourceMappingURL=style.css.map */

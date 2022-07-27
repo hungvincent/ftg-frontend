@@ -5,9 +5,13 @@ $(".btn-add-bucaikukind").click(function(){
     $(this).attr("disabled",true);
 
     // 代碼
-    let num = $(".table-params_bucaiku-kind").find("tr").length;
-    let table_num = $("<td></td>");
-    table_num.append(num);
+    let table_num = $("<td class='params_bucaikuKind_index'></td>");
+    $(document).ready(function(){
+        $(".params_bucaikuKind_index").each(function(i){
+            let num = i+1;
+            $(this).text(num);
+        })
+    })
 
     // 歲次
     let params_bucaiku_kindname = "<td><input class='table_input params_bucaiku_age' type='text'></td>";
@@ -20,7 +24,7 @@ $(".btn-add-bucaikukind").click(function(){
 
     let bucaikuKind_table = $("<tr></tr>");
     bucaikuKind_table.append(table_num,params_bucaiku_kindname,params_bucaiku_price,btn_box);
-    $(".table-params_bucaiku-kind").append(bucaikuKind_table);
+    bucaikuKind_table.insertAfter(".table-params_bucaiku-kind .table_title");
 })
 
 // 編輯
